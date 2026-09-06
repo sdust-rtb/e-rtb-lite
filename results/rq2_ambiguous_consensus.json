@@ -1,0 +1,18 @@
+{
+  "experiment": "ambiguous_case_consensus_analysis",
+  "n_total": 240,
+  "n_rer": 180,
+  "n_ambiguous": 60,
+  "bootstrap_resamples": 100000,
+  "parameters": {
+    "pairwise_rho_het": 0.2822,
+    "pairwise_rho_hom": 1.0,
+    "rego_match_rate_ambiguous": 0.2
+  },
+  "results": {
+    "heterogeneous_mean_agreement": 0.2952,
+    "heterogeneous_std_agreement": 0.0588,
+    "heterogeneous_mean_disagreement": 0.7048,
+    "homogeneous_agreement": 1.0
+  }
+}

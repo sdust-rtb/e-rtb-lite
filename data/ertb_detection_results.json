@@ -1,0 +1,202 @@
+[
+  {
+    "entry_id": "entry-00090",
+    "project": "n8n",
+    "report_id": "GHSA-J4P8-H8MH-RH8Q",
+    "vuln_title": "n8n Code 节点 Legacy JS 模式内部 helpers 暴露致任意文件读写 (CVE-2025-68697) - JavaScriptSandbo",
+    "risk_score": 1.0,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 8,
+    "verify": 0
+  },
+  {
+    "entry_id": "entry-00097",
+    "project": "AutoGPT",
+    "report_id": "GHSA-R277-3XC5-C79V",
+    "vuln_title": "AutoGPT BlockInstallationBlock 禁用绕过导致远程代码执行 - v1.py",
+    "risk_score": 0.51,
+    "decision": "ARBITRATE",
+    "trace_depth": 3,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00146",
+    "project": "openclaw",
+    "report_id": "GHSA-H3F9-MJWJ-W476",
+    "vuln_title": "openclaw: rawCommand/command[] parameter inconsistency allows allowlist bypass i",
+    "risk_score": 1.0,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 13,
+    "verify": 0
+  },
+  {
+    "entry_id": "entry-00198",
+    "project": "openclaw",
+    "report_id": "GHSA-Q399-23R3-HFX4",
+    "vuln_title": "OpenClaw system.run 审批机制 TOCTOU + 不可信搜索路径导致任意命令执行 (CVE-2026-31997)",
+    "risk_score": 1.0,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 8,
+    "verify": 0
+  },
+  {
+    "entry_id": "entry-00227",
+    "project": "openclaw",
+    "report_id": "GHSA-474H-PRJG-MMW3",
+    "vuln_title": "OpenClaw sandbox bypass via ACP runtime spawn - sessions-spawn-tool.ts",
+    "risk_score": 0.75,
+    "decision": "ARBITRATE",
+    "trace_depth": 5,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00229",
+    "project": "openclaw",
+    "report_id": "GHSA-H9XM-J4QG-FVPG",
+    "vuln_title": "openclaw apply_patch 工具在沙箱挂载路径场景下缺失 workspace-root 断言导致路径穿越 - apply-patch.ts",
+    "risk_score": 0.87,
+    "decision": "ARBITRATE",
+    "trace_depth": 6,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00232",
+    "project": "openclaw",
+    "report_id": "GHSA-3C6H-G97W-FG78",
+    "vuln_title": "OpenClaw safeBins sort long-option abbreviation bypass allows exec approval bypa",
+    "risk_score": 0.99,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 7,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00233",
+    "project": "openclaw",
+    "report_id": "GHSA-9P38-94JF-HGJJ",
+    "vuln_title": "OpenClaw macOS OS Command Injection via Command Substitution Bypass in Allowlist",
+    "risk_score": 1.0,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 10,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00240",
+    "project": "openclaw",
+    "report_id": "GHSA-G75X-8QQM-2VXP",
+    "vuln_title": "openclaw safeBins allowlist validation bypass via PATH manipulation",
+    "risk_score": 1.0,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 8,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00245",
+    "project": "openclaw",
+    "report_id": "GHSA-7FF8-XJH3-MGH6",
+    "vuln_title": "openclaw Incorrect Authorization via basename allowlist matching (GHSA-7ff8-xjh3",
+    "risk_score": 1.0,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 9,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00249",
+    "project": "openclaw",
+    "report_id": "GHSA-JJ82-76V6-933R",
+    "vuln_title": "OpenClaw exec allowlist bypass via env wrapper (CVE-2026-27566) - exec-approvals",
+    "risk_score": 0.75,
+    "decision": "ARBITRATE",
+    "trace_depth": 5,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00292",
+    "project": "openclaw",
+    "report_id": "GHSA-4W7M-58CG-CMFF",
+    "vuln_title": "openclaw Leaf Subagent Cross-Sibling Steering via Improper Privilege Management ",
+    "risk_score": 0.99,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 7,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00304",
+    "project": "openclaw",
+    "report_id": "GHSA-WCXR-59V9-RXR8",
+    "vuln_title": "OpenClaw session_status sandbox escape via cross-session sessionKey access - ses",
+    "risk_score": 0.75,
+    "decision": "ARBITRATE",
+    "trace_depth": 5,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00322",
+    "project": "openclaw",
+    "report_id": "GHSA-PFV5-RPCW-X34X",
+    "vuln_title": "openclaw allow-always allowlist bypass via dispatch-wrapper executable path pers",
+    "risk_score": 1.0,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 8,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00327",
+    "project": "openclaw",
+    "report_id": "GHSA-WR92-6W3G-2HWC",
+    "vuln_title": "OpenClaw sandbox bypass via cross-agent sessions_spawn inheritance failure",
+    "risk_score": 0.99,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 7,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00407",
+    "project": "openclaw",
+    "report_id": "GHSA-V3QC-WRWX-J3PW",
+    "vuln_title": "OpenClaw Agent Consent Bypass via Unguarded config.patch/config.apply (GHSA-v3qc",
+    "risk_score": 0.63,
+    "decision": "ARBITRATE",
+    "trace_depth": 4,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00411",
+    "project": "openclaw",
+    "report_id": "GHSA-GJM7-HW8F-73RQ",
+    "vuln_title": "openclaw 节点权限提升导致网关侧 RCE (GHSA-gjm7-hw8f-73rq) - pi-tools.ts",
+    "risk_score": 0.63,
+    "decision": "ARBITRATE",
+    "trace_depth": 4,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00437",
+    "project": "paperclipai/paperclip",
+    "report_id": "GHSA-265W-RF2W-CJH4",
+    "vuln_title": "OS Command Injection via adapterConfig.workspaceStrategy.provisionCommand in PAT",
+    "risk_score": 1.0,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 10,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00496",
+    "project": "openclaw",
+    "report_id": "GHSA-736R-JWJ6-4W23",
+    "vuln_title": "openclaw 沙箱 exec 路由授权绕过 (GHSA-736r-jwj6-4w23) - bash-tools.exec-runtime.ts",
+    "risk_score": 0.63,
+    "decision": "ARBITRATE",
+    "trace_depth": 4,
+    "verify": 1
+  },
+  {
+    "entry_id": "entry-00505",
+    "project": "openclaw",
+    "report_id": "GHSA-2CQ5-MF3V-MX44",
+    "vuln_title": "openclaw multi-call binary exec approval bypass (GHSA-2cq5-mf3v-mx44)",
+    "risk_score": 1.0,
+    "decision": "HARD-REVOKE",
+    "trace_depth": 10,
+    "verify": 1
+  }
+]

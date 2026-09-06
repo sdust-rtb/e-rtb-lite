@@ -1,0 +1,29 @@
+{
+  "experiment": "rq2_collusion_detection",
+  "n_pairs": 100,
+  "baseline": {
+    "threshold": 0.5,
+    "verdict_constraint": false,
+    "precision": 0.4167,
+    "recall": 0.3333,
+    "f1": 0.3704,
+    "tp": 20,
+    "fp": 28,
+    "tn": 12,
+    "fn": 40
+  },
+  "with_verdict_constraint": {
+    "threshold": 0.5,
+    "verdict_constraint": true,
+    "precision": 1.0,
+    "recall": 0.3333,
+    "f1": 0.5,
+    "tp": 20,
+    "fp": 0,
+    "tn": 40,
+    "fn": 40
+  },
+  "delta_precision": 0.5833,
+  "optimal_tau": 0.1,
+  "optimal_f1": 0.9381
+}

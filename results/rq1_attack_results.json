@@ -1,0 +1,37 @@
+{
+  "attacks": [
+    {
+      "attack_type": "A1_MAC_forgery",
+      "description": "No channel_key, random MAC",
+      "n_attempts": 100000,
+      "successes": 0,
+      "failure_by_mac": 100000,
+      "failure_by_seq": 0,
+      "success_rate": 0.0,
+      "elapsed_s": 0.7
+    },
+    {
+      "attack_type": "A2_replay_with_channel_key",
+      "description": "Has channel_key, valid MAC but stale seq",
+      "n_legitimate": 1000,
+      "n_attempts": 100000,
+      "successes": 0,
+      "failure_by_mac": 0,
+      "failure_by_seq": 100000,
+      "success_rate": 0.0,
+      "elapsed_s": 0.9
+    },
+    {
+      "attack_type": "A3_hash_chain_tamper",
+      "description": "Tamper h_curr + random key signature",
+      "n_attempts": 100000,
+      "successes": 0,
+      "failures": 100000,
+      "success_rate": 0.0,
+      "elapsed_s": 22.3
+    }
+  ],
+  "total_attempts": 300000,
+  "total_successes": 0,
+  "ci_upper": 1.766090193289216e-05
+}

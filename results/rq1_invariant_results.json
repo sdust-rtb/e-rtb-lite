@@ -1,0 +1,21 @@
+{
+  "checkpoint_1": {
+    "total": 10000,
+    "sig_pass": 10000,
+    "sig_fail": 0,
+    "chain_ok": true,
+    "chain_fail_at": -1,
+    "seq_monotone": true,
+    "seq_fail_at": -1
+  },
+  "final": {
+    "total": 15000,
+    "sig_pass": 15000,
+    "sig_fail": 0,
+    "chain_ok": true,
+    "chain_fail_at": -1,
+    "seq_monotone": true,
+    "seq_fail_at": -1
+  },
+  "unobserved_count": 5000
+}

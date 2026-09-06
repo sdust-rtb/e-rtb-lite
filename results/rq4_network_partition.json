@@ -1,0 +1,9 @@
+{
+  "online_signed": 9,
+  "offline_blocked": 3,
+  "offline_signed": 3,
+  "offline_cached": 3,
+  "audit_pass": 3,
+  "total_evidence": 12,
+  "total_sig_pass": 12
+}

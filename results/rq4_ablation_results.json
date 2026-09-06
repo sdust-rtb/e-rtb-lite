@@ -1,0 +1,133 @@
+{
+  "experiment": "rq4_state_ablation",
+  "configs": {
+    "S1": "S1: No Soft Revoke",
+    "S2": "S2: No Cooldown",
+    "S3": "S3: Full Closed-Loop"
+  },
+  "results": {
+    "S1_slow_arb": {
+      "config": "S1",
+      "scenario": "slow_arb",
+      "final_status": "R",
+      "final_rep": 0.099408,
+      "exposure_window": 20,
+      "oscillation_count": 0,
+      "false_restore_count": 0,
+      "privileged_steps": 5,
+      "probation_fraction": 0.0,
+      "soft_triggered": false,
+      "hard_triggered": true
+    },
+    "S1_fluctuating": {
+      "config": "S1",
+      "scenario": "fluctuating",
+      "final_status": "A",
+      "final_rep": 0.0,
+      "exposure_window": 149,
+      "oscillation_count": 0,
+      "false_restore_count": 0,
+      "privileged_steps": 95,
+      "probation_fraction": 0.0,
+      "soft_triggered": false,
+      "hard_triggered": false
+    },
+    "S1_erosion": {
+      "config": "S1",
+      "scenario": "erosion",
+      "final_status": "A",
+      "final_rep": 0.0,
+      "exposure_window": null,
+      "oscillation_count": 0,
+      "false_restore_count": 0,
+      "privileged_steps": 0,
+      "probation_fraction": 0.0,
+      "soft_triggered": false,
+      "hard_triggered": false
+    },
+    "S2_slow_arb": {
+      "config": "S2",
+      "scenario": "slow_arb",
+      "final_status": "R",
+      "final_rep": 0.099408,
+      "exposure_window": 20,
+      "oscillation_count": 2,
+      "false_restore_count": 0,
+      "privileged_steps": 1,
+      "probation_fraction": 0.0333,
+      "soft_triggered": true,
+      "hard_triggered": true
+    },
+    "S2_fluctuating": {
+      "config": "S2",
+      "scenario": "fluctuating",
+      "final_status": "A",
+      "final_rep": 0.0,
+      "exposure_window": 149,
+      "oscillation_count": 38,
+      "false_restore_count": 0,
+      "privileged_steps": 19,
+      "probation_fraction": 0.6333,
+      "soft_triggered": true,
+      "hard_triggered": false
+    },
+    "S2_erosion": {
+      "config": "S2",
+      "scenario": "erosion",
+      "final_status": "A",
+      "final_rep": 0.0,
+      "exposure_window": null,
+      "oscillation_count": 36,
+      "false_restore_count": 0,
+      "privileged_steps": 0,
+      "probation_fraction": 0.6,
+      "soft_triggered": true,
+      "hard_triggered": false
+    },
+    "S3_slow_arb": {
+      "config": "S3",
+      "scenario": "slow_arb",
+      "final_status": "R",
+      "final_rep": 0.099408,
+      "exposure_window": 20,
+      "oscillation_count": 2,
+      "false_restore_count": 0,
+      "privileged_steps": 1,
+      "probation_fraction": 0.0733,
+      "soft_triggered": true,
+      "hard_triggered": true
+    },
+    "S3_fluctuating": {
+      "config": "S3",
+      "scenario": "fluctuating",
+      "final_status": "P",
+      "final_rep": 0.0,
+      "exposure_window": 149,
+      "oscillation_count": 19,
+      "false_restore_count": 0,
+      "privileged_steps": 10,
+      "probation_fraction": 0.82,
+      "soft_triggered": true,
+      "hard_triggered": false
+    },
+    "S3_erosion": {
+      "config": "S3",
+      "scenario": "erosion",
+      "final_status": "A",
+      "final_rep": 0.0,
+      "exposure_window": null,
+      "oscillation_count": 18,
+      "false_restore_count": 0,
+      "privileged_steps": 0,
+      "probation_fraction": 0.78,
+      "soft_triggered": true,
+      "hard_triggered": false
+    }
+  },
+  "params": {
+    "SW_SHORT": 5,
+    "SW_LONG": 30,
+    "TAU_COOL": 10,
+    "ARB_DELAY": 20
+  }
+}

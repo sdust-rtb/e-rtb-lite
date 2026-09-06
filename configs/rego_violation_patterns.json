@@ -1,0 +1,18 @@
+{
+  "description": "Deterministic Rego rule engine violation patterns (local, no API). A case is a violation (verdict=1) if any event matches (syscall, resource-substring). Source: experiments/rq2/jury_quality.py (RegoRuleEngine.VIOLATION_PATTERNS).",
+  "match_rule": "event.syscall == syscall AND pattern in event.resource",
+  "patterns": [
+    { "syscall": "openat", "resource_substring": "/etc/shadow" },
+    { "syscall": "openat", "resource_substring": "/root/.ssh" },
+    { "syscall": "openat", "resource_substring": "/etc/sudoers" },
+    { "syscall": "openat", "resource_substring": "/etc/crontab" },
+    { "syscall": "openat", "resource_substring": "/proc/self/mem" },
+    { "syscall": "execve", "resource_substring": "/usr/bin/sudo" },
+    { "syscall": "execve", "resource_substring": "/bin/su" },
+    { "syscall": "execve", "resource_substring": "/usr/bin/nc" },
+    { "syscall": "tcp_v4_connect", "resource_substring": "192.168." },
+    { "syscall": "tcp_v4_connect", "resource_substring": "10.0.0.99" },
+    { "syscall": "tcp_sendmsg", "resource_substring": "evil.com" }
+  ],
+  "note": "This is the deterministic anchor that breaks LLM collective hallucination; it is architecturally orthogonal to the two LLM jurors."
+}

@@ -1,0 +1,248 @@
+{
+  "experiment": "cross_node_N30",
+  "timestamp": 1779442782,
+  "description": "E-RTB-Lite N=30 cross-node revocation latency validation",
+  "configuration": {
+    "registry": "http://127.0.0.1:5000/submit",
+    "simulated_rtt_ms": 20,
+    "behavioral_steps": 65,
+    "baseline_steps": "1-30",
+    "violation_step": 31,
+    "post_revocation_steps": "32-65"
+  },
+  "raw_results": [
+    {
+      "round": 1,
+      "latency_ms": 11.5,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 2,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 3,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 4,
+      "latency_ms": 11.5,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 5,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 6,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 7,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 8,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 9,
+      "latency_ms": 11.5,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 10,
+      "latency_ms": 11.7,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 11,
+      "latency_ms": 11.5,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 12,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 13,
+      "latency_ms": 11.5,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 14,
+      "latency_ms": 11.7,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 15,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 16,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 17,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 18,
+      "latency_ms": 11.5,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 19,
+      "latency_ms": 11.5,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 20,
+      "latency_ms": 11.5,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 21,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 22,
+      "latency_ms": 12.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 23,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 24,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 25,
+      "latency_ms": 11.5,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 26,
+      "latency_ms": 11.5,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 27,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 28,
+      "latency_ms": 11.7,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 29,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    },
+    {
+      "round": 30,
+      "latency_ms": 11.6,
+      "blocked": 34,
+      "total": 34,
+      "block_rate": 1.0
+    }
+  ],
+  "statistics": {
+    "n_valid": 30,
+    "n_total": 30,
+    "success_rate": 1.0,
+    "latency_mean_ms": 11.6,
+    "latency_median_ms": 11.6,
+    "latency_std_ms": 0.2,
+    "latency_p50_ms": 11.6,
+    "latency_p95_ms": 11.7,
+    "latency_p99_ms": 12.6,
+    "latency_min_ms": 11.5,
+    "latency_max_ms": 12.6,
+    "block_rate_mean": 1.0,
+    "total_post_revocation_events": 1020,
+    "total_blocked": 1020,
+    "zero_bypass": true
+  },
+  "comparison_with_single_round": {
+    "original_N1_latency_ms": 35.1,
+    "original_environment": "two independent cloud instances",
+    "new_N30_environment": "single server with simulated 20ms RTT",
+    "new_latency_composition": "11.6ms = 10ms(outbound sim) + 1.6ms(server+loopback) + 10ms(inbound sim estimate)"
+  }
+}

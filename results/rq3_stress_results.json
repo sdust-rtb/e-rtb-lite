@@ -1,0 +1,47 @@
+[
+  {
+    "n_agents": 1,
+    "total_events": 500,
+    "elapsed_s": 0.034,
+    "throughput_eps": 14666.5,
+    "p50_us": 48.7,
+    "p95_us": 104.1,
+    "p99_us": 201.3
+  },
+  {
+    "n_agents": 5,
+    "total_events": 2500,
+    "elapsed_s": 0.164,
+    "throughput_eps": 15232.7,
+    "p50_us": 52.8,
+    "p95_us": 126.0,
+    "p99_us": 5523.1
+  },
+  {
+    "n_agents": 10,
+    "total_events": 5000,
+    "elapsed_s": 0.347,
+    "throughput_eps": 14392.7,
+    "p50_us": 54.9,
+    "p95_us": 136.2,
+    "p99_us": 12374.1
+  },
+  {
+    "n_agents": 20,
+    "total_events": 10000,
+    "elapsed_s": 0.684,
+    "throughput_eps": 14626.0,
+    "p50_us": 54.0,
+    "p95_us": 145.4,
+    "p99_us": 29355.3
+  },
+  {
+    "n_agents": 50,
+    "total_events": 25000,
+    "elapsed_s": 1.616,
+    "throughput_eps": 15467.6,
+    "p50_us": 51.0,
+    "p95_us": 150.2,
+    "p99_us": 71386.2
+  }
+]

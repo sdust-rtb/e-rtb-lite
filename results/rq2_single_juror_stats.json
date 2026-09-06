@@ -1,0 +1,465 @@
+{
+  "metadata": {
+    "input": "D:\\data\\RTB\\experiments\\results\\rq2_jury_cases_raw.json",
+    "n_cases": 180,
+    "ci": "exact Clopper-Pearson two-sided 95%"
+  },
+  "configurations": {
+    "E-RTB-Lite_heterogeneous": {
+      "engine_order": [
+        "Qwen2.5-3B",
+        "GLM-4-9B",
+        "Rego (rule engine)"
+      ],
+      "jurors": {
+        "vote[0]": {
+          "engine": "Qwen2.5-3B",
+          "n": 180,
+          "errors": 35,
+          "error_rate": 0.19444444444444445,
+          "ci95_clopper_pearson": [
+            0.13933292270246364,
+            0.25990510980069526
+          ],
+          "fpr": 0.05,
+          "fnr": 0.14444444444444443,
+          "by_category": {
+            "DC": {
+              "n": 60,
+              "errors": 9,
+              "error_rate": 0.15
+            },
+            "DV": {
+              "n": 60,
+              "errors": 17,
+              "error_rate": 0.2833333333333333
+            },
+            "MS": {
+              "n": 60,
+              "errors": 9,
+              "error_rate": 0.15
+            }
+          },
+          "mcnemar_juror_vs_majority": {
+            "a": 145,
+            "b": 29,
+            "c": 0,
+            "chi2": 27.03448275862069,
+            "p_value": 1.9985815081381854e-07
+          },
+          "errors_removed_by_majority": 29,
+          "errors_matching_wrong_majority": 6
+        },
+        "vote[1]": {
+          "engine": "GLM-4-9B",
+          "n": 180,
+          "errors": 6,
+          "error_rate": 0.03333333333333333,
+          "ci95_clopper_pearson": [
+            0.012329158330219778,
+            0.07113766889368732
+          ],
+          "fpr": 0.005555555555555556,
+          "fnr": 0.027777777777777776,
+          "by_category": {
+            "DC": {
+              "n": 60,
+              "errors": 1,
+              "error_rate": 0.016666666666666666
+            },
+            "DV": {
+              "n": 60,
+              "errors": 5,
+              "error_rate": 0.08333333333333333
+            },
+            "MS": {
+              "n": 60,
+              "errors": 0,
+              "error_rate": 0.0
+            }
+          },
+          "mcnemar_juror_vs_majority": {
+            "a": 172,
+            "b": 2,
+            "c": 2,
+            "chi2": 0.25,
+            "p_value": 0.6170750774519739
+          },
+          "errors_removed_by_majority": 0,
+          "errors_matching_wrong_majority": 4
+        },
+        "vote[2]": {
+          "engine": "Rego (rule engine)",
+          "n": 180,
+          "errors": 2,
+          "error_rate": 0.011111111111111112,
+          "ci95_clopper_pearson": [
+            0.0013484509916209145,
+            0.039558843402180785
+          ],
+          "fpr": 0.0,
+          "fnr": 0.011111111111111112,
+          "by_category": {
+            "DC": {
+              "n": 60,
+              "errors": 0,
+              "error_rate": 0.0
+            },
+            "DV": {
+              "n": 60,
+              "errors": 2,
+              "error_rate": 0.03333333333333333
+            },
+            "MS": {
+              "n": 60,
+              "errors": 0,
+              "error_rate": 0.0
+            }
+          },
+          "mcnemar_juror_vs_majority": {
+            "a": 174,
+            "b": 0,
+            "c": 4,
+            "chi2": 2.25,
+            "p_value": 0.13361440253771584
+          },
+          "errors_removed_by_majority": -4,
+          "errors_matching_wrong_majority": 2
+        }
+      },
+      "jury_majority": {
+        "n": 180,
+        "errors": 6,
+        "error_rate": 0.03333333333333333,
+        "ci95_clopper_pearson": [
+          0.012329158330219778,
+          0.07113766889368732
+        ],
+        "paper_error_rate": 0.0333,
+        "matches_paper": true
+      },
+      "pairwise_error_correlation": {
+        "Qwen2.5-3B__GLM-4-9B": 0.2215653807295441,
+        "Qwen2.5-3B__Rego (rule engine)": 0.21575207220630785,
+        "GLM-4-9B__Rego (rule engine)": -0.019683666479474005
+      },
+      "unanimous_error_cases": 0,
+      "unanimous_error_rate": 0.0
+    },
+    "B3_homogeneous": {
+      "engine_order": [
+        "Qwen2.5-3B",
+        "Qwen2.5-3B",
+        "Qwen2.5-3B"
+      ],
+      "jurors": {
+        "vote[0]": {
+          "engine": "Qwen2.5-3B",
+          "n": 180,
+          "errors": 35,
+          "error_rate": 0.19444444444444445,
+          "ci95_clopper_pearson": [
+            0.13933292270246364,
+            0.25990510980069526
+          ],
+          "fpr": 0.05,
+          "fnr": 0.14444444444444443,
+          "by_category": {
+            "DC": {
+              "n": 60,
+              "errors": 9,
+              "error_rate": 0.15
+            },
+            "DV": {
+              "n": 60,
+              "errors": 17,
+              "error_rate": 0.2833333333333333
+            },
+            "MS": {
+              "n": 60,
+              "errors": 9,
+              "error_rate": 0.15
+            }
+          },
+          "mcnemar_juror_vs_majority": {
+            "a": 142,
+            "b": 11,
+            "c": 3,
+            "chi2": 3.5,
+            "p_value": 0.061368829139402316
+          },
+          "errors_removed_by_majority": 8,
+          "errors_matching_wrong_majority": 24
+        },
+        "vote[1]": {
+          "engine": "Qwen2.5-3B",
+          "n": 180,
+          "errors": 32,
+          "error_rate": 0.17777777777777778,
+          "ci95_clopper_pearson": [
+            0.1248919736379938,
+            0.24159859138953596
+          ],
+          "fpr": 0.027777777777777776,
+          "fnr": 0.15,
+          "by_category": {
+            "DC": {
+              "n": 60,
+              "errors": 5,
+              "error_rate": 0.08333333333333333
+            },
+            "DV": {
+              "n": 60,
+              "errors": 19,
+              "error_rate": 0.31666666666666665
+            },
+            "MS": {
+              "n": 60,
+              "errors": 8,
+              "error_rate": 0.13333333333333333
+            }
+          },
+          "mcnemar_juror_vs_majority": {
+            "a": 144,
+            "b": 9,
+            "c": 4,
+            "chi2": 1.2307692307692308,
+            "p_value": 0.26725749315438463
+          },
+          "errors_removed_by_majority": 5,
+          "errors_matching_wrong_majority": 23
+        },
+        "vote[2]": {
+          "engine": "Qwen2.5-3B",
+          "n": 180,
+          "errors": 28,
+          "error_rate": 0.15555555555555556,
+          "ci95_clopper_pearson": [
+            0.10592284068572135,
+            0.21691415593392083
+          ],
+          "fpr": 0.03333333333333333,
+          "fnr": 0.12222222222222222,
+          "by_category": {
+            "DC": {
+              "n": 60,
+              "errors": 6,
+              "error_rate": 0.1
+            },
+            "DV": {
+              "n": 60,
+              "errors": 14,
+              "error_rate": 0.23333333333333334
+            },
+            "MS": {
+              "n": 60,
+              "errors": 8,
+              "error_rate": 0.13333333333333333
+            }
+          },
+          "mcnemar_juror_vs_majority": {
+            "a": 145,
+            "b": 8,
+            "c": 7,
+            "chi2": 0.0,
+            "p_value": 1.0
+          },
+          "errors_removed_by_majority": 1,
+          "errors_matching_wrong_majority": 20
+        }
+      },
+      "jury_majority": {
+        "n": 180,
+        "errors": 27,
+        "error_rate": 0.15,
+        "ci95_clopper_pearson": [
+          0.10123716874062758,
+          0.21068858055735631
+        ],
+        "paper_error_rate": 0.15,
+        "matches_paper": true
+      },
+      "pairwise_error_correlation": {
+        "Qwen2.5-3B__Qwen2.5-3B": 0.44191120270364814
+      },
+      "unanimous_error_cases": 13,
+      "unanimous_error_rate": 0.07222222222222222
+    },
+    "ablation_pure_llm": {
+      "engine_order": [
+        "Qwen2.5-3B",
+        "GLM-4-9B",
+        "DeepSeek-V3.2"
+      ],
+      "jurors": {
+        "vote[0]": {
+          "engine": "Qwen2.5-3B",
+          "n": 180,
+          "errors": 35,
+          "error_rate": 0.19444444444444445,
+          "ci95_clopper_pearson": [
+            0.13933292270246364,
+            0.25990510980069526
+          ],
+          "fpr": 0.05,
+          "fnr": 0.14444444444444443,
+          "by_category": {
+            "DC": {
+              "n": 60,
+              "errors": 9,
+              "error_rate": 0.15
+            },
+            "DV": {
+              "n": 60,
+              "errors": 17,
+              "error_rate": 0.2833333333333333
+            },
+            "MS": {
+              "n": 60,
+              "errors": 9,
+              "error_rate": 0.15
+            }
+          },
+          "mcnemar_juror_vs_majority": {
+            "a": 145,
+            "b": 31,
+            "c": 0,
+            "chi2": 29.032258064516128,
+            "p_value": 7.118304164714049e-08
+          },
+          "errors_removed_by_majority": 31,
+          "errors_matching_wrong_majority": 4
+        },
+        "vote[1]": {
+          "engine": "GLM-4-9B",
+          "n": 180,
+          "errors": 6,
+          "error_rate": 0.03333333333333333,
+          "ci95_clopper_pearson": [
+            0.012329158330219778,
+            0.07113766889368732
+          ],
+          "fpr": 0.005555555555555556,
+          "fnr": 0.027777777777777776,
+          "by_category": {
+            "DC": {
+              "n": 60,
+              "errors": 1,
+              "error_rate": 0.016666666666666666
+            },
+            "DV": {
+              "n": 60,
+              "errors": 5,
+              "error_rate": 0.08333333333333333
+            },
+            "MS": {
+              "n": 60,
+              "errors": 0,
+              "error_rate": 0.0
+            }
+          },
+          "mcnemar_juror_vs_majority": {
+            "a": 174,
+            "b": 2,
+            "c": 0,
+            "chi2": 0.5,
+            "p_value": 0.47950012218695337
+          },
+          "errors_removed_by_majority": 2,
+          "errors_matching_wrong_majority": 4
+        },
+        "vote[2]": {
+          "engine": "DeepSeek-V3.2",
+          "n": 180,
+          "errors": 0,
+          "error_rate": 0.0,
+          "ci95_clopper_pearson": [
+            0.0,
+            0.020285204570112986
+          ],
+          "fpr": 0.0,
+          "fnr": 0.0,
+          "by_category": {
+            "DC": {
+              "n": 60,
+              "errors": 0,
+              "error_rate": 0.0
+            },
+            "DV": {
+              "n": 60,
+              "errors": 0,
+              "error_rate": 0.0
+            },
+            "MS": {
+              "n": 60,
+              "errors": 0,
+              "error_rate": 0.0
+            }
+          },
+          "mcnemar_juror_vs_majority": {
+            "a": 176,
+            "b": 0,
+            "c": 4,
+            "chi2": 2.25,
+            "p_value": 0.13361440253771584
+          },
+          "errors_removed_by_majority": -4,
+          "errors_matching_wrong_majority": 0
+        }
+      },
+      "jury_majority": {
+        "n": 180,
+        "errors": 4,
+        "error_rate": 0.022222222222222223,
+        "ci95_clopper_pearson": [
+          0.00608723152282841,
+          0.05591769708177613
+        ],
+        "paper_error_rate": 0.0222,
+        "matches_paper": true
+      },
+      "pairwise_error_correlation": {
+        "Qwen2.5-3B__GLM-4-9B": 0.2215653807295441,
+        "Qwen2.5-3B__DeepSeek-V3.2": null,
+        "GLM-4-9B__DeepSeek-V3.2": null
+      },
+      "unanimous_error_cases": 0,
+      "unanimous_error_rate": 0.0
+    }
+  },
+  "key_numbers": {
+    "E-RTB-Lite_heterogeneous": {
+      "jury_majority_error_rate": 0.03333333333333333,
+      "best_juror": "Rego (rule engine)",
+      "best_juror_error_rate": 0.011111111111111112,
+      "worst_juror": "Qwen2.5-3B",
+      "worst_juror_error_rate": 0.19444444444444445,
+      "span_worst_minus_best": 0.18333333333333335,
+      "jury_vs_worst_juror": -0.16111111111111112,
+      "jury_vs_best_juror": 0.02222222222222222,
+      "majority_removes_from_worst": 0.16111111111111112
+    },
+    "B3_homogeneous": {
+      "jury_majority_error_rate": 0.15,
+      "best_juror": "Qwen2.5-3B",
+      "best_juror_error_rate": 0.15555555555555556,
+      "worst_juror": "Qwen2.5-3B",
+      "worst_juror_error_rate": 0.19444444444444445,
+      "span_worst_minus_best": 0.03888888888888889,
+      "jury_vs_worst_juror": -0.04444444444444445,
+      "jury_vs_best_juror": -0.005555555555555564,
+      "majority_removes_from_worst": 0.04444444444444445
+    },
+    "ablation_pure_llm": {
+      "jury_majority_error_rate": 0.022222222222222223,
+      "best_juror": "DeepSeek-V3.2",
+      "best_juror_error_rate": 0.0,
+      "worst_juror": "Qwen2.5-3B",
+      "worst_juror_error_rate": 0.19444444444444445,
+      "span_worst_minus_best": 0.19444444444444445,
+      "jury_vs_worst_juror": -0.17222222222222222,
+      "jury_vs_best_juror": 0.022222222222222223,
+      "majority_removes_from_worst": 0.17222222222222222
+    }
+  }
+}

@@ -1,0 +1,508 @@
+{
+  "metadata": {
+    "seed": 20260905,
+    "N": 10000,
+    "nrep": 100,
+    "ebpf_drop_in_normal": 0.5,
+    "lsm_drop_in_normal": 0.01,
+    "model": "host-level common-cause OUTAGE layer silences both channels; channels independent inside NORMAL",
+    "ci": "normal approximation over the 100 repeats (identical to the original dual-obs experiment)",
+    "U_union_coverage_at_zero_common_cause": 0.9950170000000004,
+    "ebpf_only_coverage_at_zero_common_cause": 0.5003129999999998,
+    "lsm_only_coverage_at_zero_common_cause": 0.9901200000000001
+  },
+  "runs": {
+    "independent_baseline": {
+      "G1_eBPF_only": {
+        "rate": 0.5003129999999998,
+        "ci95": 0.0009492620353179626,
+        "p05": 0.4929,
+        "p50": 0.5001,
+        "p95": 0.5
+      },
+      "G2_LSM_only": {
+        "rate": 0.9901200000000001,
+        "ci95": 0.00018076683766664765,
+        "p05": 0.9886,
+        "p50": 0.9903,
+        "p95": 0.9903
+      },
+      "G3_dual": {
+        "rate": 0.9950170000000004,
+        "ci95": 0.00013745330616612983,
+        "p05": 0.9939,
+        "p50": 0.995,
+        "p95": 0.995
+      },
+      "ebpf_drop_rate": 0.499687,
+      "lsm_drop_rate": 0.00988,
+      "drop_indicator_correlation": 0.0009320460943124788,
+      "p_cc": 0.0,
+      "mode": "iid"
+    },
+    "common_cause_iid_pcc_0001": {
+      "G1_eBPF_only": {
+        "rate": 0.49999700000000014,
+        "ci95": 0.0010589786044373133,
+        "p05": 0.491,
+        "p50": 0.5004,
+        "p95": 0.5003
+      },
+      "G2_LSM_only": {
+        "rate": 0.989884,
+        "ci95": 0.00020516847102807916,
+        "p05": 0.9882,
+        "p50": 0.9898,
+        "p95": 0.9898
+      },
+      "G3_dual": {
+        "rate": 0.9948899999999996,
+        "ci95": 0.0001534693767498905,
+        "p05": 0.9937,
+        "p50": 0.9949,
+        "p95": 0.9949
+      },
+      "ebpf_drop_rate": 0.500003,
+      "lsm_drop_rate": 0.010116,
+      "drop_indicator_correlation": 0.0010386835216500015,
+      "p_cc": 0.001,
+      "mode": "iid",
+      "analytical_ebpf": 0.4998126869999998,
+      "analytical_lsm": 0.9891298800000001,
+      "analytical_dual": 0.9940219830000003,
+      "analytical_delta_dual": 0.0008680169999992771,
+      "p_cc_hat_from_dual_rate": 0.00012763601023979554
+    },
+    "common_cause_iid_pcc_0005": {
+      "G1_eBPF_only": {
+        "rate": 0.497812,
+        "ci95": 0.0014229823535434308,
+        "p05": 0.4877,
+        "p50": 0.4987,
+        "p95": 0.4985
+      },
+      "G2_LSM_only": {
+        "rate": 0.9859910000000002,
+        "ci95": 0.002174598748161139,
+        "p05": 0.9663,
+        "p50": 0.9898,
+        "p95": 0.9897
+      },
+      "G3_dual": {
+        "rate": 0.9908430000000003,
+        "ci95": 0.0021795257372226656,
+        "p05": 0.9714,
+        "p50": 0.9947,
+        "p95": 0.9947
+      },
+      "ebpf_drop_rate": 0.502188,
+      "lsm_drop_rate": 0.014009,
+      "drop_indicator_correlation": 0.036108416531231834,
+      "p_cc": 0.005,
+      "mode": "iid",
+      "analytical_ebpf": 0.4978114349999998,
+      "analytical_lsm": 0.9851694000000001,
+      "analytical_dual": 0.9900419150000004,
+      "analytical_delta_dual": 0.0008010849999998682,
+      "p_cc_hat_from_dual_rate": 0.004194903202658917
+    },
+    "common_cause_iid_pcc_0010": {
+      "G1_eBPF_only": {
+        "rate": 0.49443500000000007,
+        "ci95": 0.0020229827881620747,
+        "p05": 0.4772,
+        "p50": 0.4956,
+        "p95": 0.4953
+      },
+      "G2_LSM_only": {
+        "rate": 0.9794540000000002,
+        "ci95": 0.003125826311960408,
+        "p05": 0.9544,
+        "p50": 0.9876,
+        "p95": 0.9869
+      },
+      "G3_dual": {
+        "rate": 0.9843549999999994,
+        "ci95": 0.003131463453083878,
+        "p05": 0.9587,
+        "p50": 0.9923,
+        "p95": 0.9916
+      },
+      "ebpf_drop_rate": 0.505565,
+      "lsm_drop_rate": 0.020546,
+      "drop_indicator_correlation": 0.07412997531745945,
+      "p_cc": 0.01,
+      "mode": "iid",
+      "analytical_ebpf": 0.49530986999999976,
+      "analytical_lsm": 0.9802188000000001,
+      "analytical_dual": 0.9850668300000004,
+      "analytical_delta_dual": -0.0007118300000009681,
+      "p_cc_hat_from_dual_rate": 0.010715394812350842
+    },
+    "common_cause_iid_pcc_0020": {
+      "G1_eBPF_only": {
+        "rate": 0.491206,
+        "ci95": 0.0015845671366729777,
+        "p05": 0.4793,
+        "p50": 0.4914,
+        "p95": 0.4913
+      },
+      "G2_LSM_only": {
+        "rate": 0.971626,
+        "ci95": 0.0024683437560404733,
+        "p05": 0.9512,
+        "p50": 0.9733,
+        "p95": 0.973
+      },
+      "G3_dual": {
+        "rate": 0.9765000000000004,
+        "ci95": 0.0024707523977930282,
+        "p05": 0.9563,
+        "p50": 0.9782,
+        "p95": 0.9773
+      },
+      "ebpf_drop_rate": 0.508794,
+      "lsm_drop_rate": 0.028374,
+      "drop_indicator_correlation": 0.10918984934857974,
+      "p_cc": 0.02,
+      "mode": "iid",
+      "analytical_ebpf": 0.4903067399999998,
+      "analytical_lsm": 0.9703176000000001,
+      "analytical_dual": 0.9751166600000003,
+      "analytical_delta_dual": 0.0013833400000000662,
+      "p_cc_hat_from_dual_rate": 0.018609732296031134
+    },
+    "common_cause_iid_pcc_0050": {
+      "G1_eBPF_only": {
+        "rate": 0.475461,
+        "ci95": 0.0016847882163832934,
+        "p05": 0.4614,
+        "p50": 0.4756,
+        "p95": 0.4755
+      },
+      "G2_LSM_only": {
+        "rate": 0.941407,
+        "ci95": 0.002658777754836985,
+        "p05": 0.919,
+        "p50": 0.9417,
+        "p95": 0.9416
+      },
+      "G3_dual": {
+        "rate": 0.9461699999999995,
+        "ci95": 0.00268455254968123,
+        "p05": 0.9232,
+        "p50": 0.9468,
+        "p95": 0.9467
+      },
+      "ebpf_drop_rate": 0.524539,
+      "lsm_drop_rate": 0.058593,
+      "drop_indicator_correlation": 0.196912348884782,
+      "p_cc": 0.05,
+      "mode": "iid",
+      "analytical_ebpf": 0.4752973499999998,
+      "analytical_lsm": 0.9406140000000001,
+      "analytical_dual": 0.9452661500000004,
+      "analytical_delta_dual": 0.0009038499999991512,
+      "p_cc_hat_from_dual_rate": 0.04909162356020136
+    },
+    "common_cause_iid_pcc_0100": {
+      "G1_eBPF_only": {
+        "rate": 0.4496070000000001,
+        "ci95": 0.0016706128841883147,
+        "p05": 0.4358,
+        "p50": 0.449,
+        "p95": 0.4486
+      },
+      "G2_LSM_only": {
+        "rate": 0.8920949999999997,
+        "ci95": 0.002345628515771413,
+        "p05": 0.872,
+        "p50": 0.8933,
+        "p95": 0.8926
+      },
+      "G3_dual": {
+        "rate": 0.8965530000000004,
+        "ci95": 0.002360322551825491,
+        "p05": 0.8767,
+        "p50": 0.8976,
+        "p95": 0.8969
+      },
+      "ebpf_drop_rate": 0.550393,
+      "lsm_drop_rate": 0.107905,
+      "drop_indicator_correlation": 0.2854526352055173,
+      "p_cc": 0.1,
+      "mode": "iid",
+      "analytical_ebpf": 0.45028169999999984,
+      "analytical_lsm": 0.8911080000000001,
+      "analytical_dual": 0.8955153000000003,
+      "analytical_delta_dual": 0.0010377000000000303,
+      "p_cc_hat_from_dual_rate": 0.09895710324547213
+    },
+    "common_cause_iid_pcc_0200": {
+      "G1_eBPF_only": {
+        "rate": 0.3998340000000001,
+        "ci95": 0.0014507130894508397,
+        "p05": 0.3894,
+        "p50": 0.3995,
+        "p95": 0.3994
+      },
+      "G2_LSM_only": {
+        "rate": 0.7925140000000003,
+        "ci95": 0.002060057941724941,
+        "p05": 0.7765,
+        "p50": 0.7936,
+        "p95": 0.7934
+      },
+      "G3_dual": {
+        "rate": 0.796443,
+        "ci95": 0.002072422208145821,
+        "p05": 0.7794,
+        "p50": 0.7974,
+        "p95": 0.7972
+      },
+      "ebpf_drop_rate": 0.600166,
+      "lsm_drop_rate": 0.207486,
+      "drop_indicator_correlation": 0.3978540807891016,
+      "p_cc": 0.2,
+      "mode": "iid",
+      "analytical_ebpf": 0.40025039999999984,
+      "analytical_lsm": 0.7920960000000001,
+      "analytical_dual": 0.7960136000000003,
+      "analytical_delta_dual": 0.00042939999999969114,
+      "p_cc_hat_from_dual_rate": 0.19956844958427877
+    },
+    "common_cause_bursty_pcc_0010_L5": {
+      "G1_eBPF_only": {
+        "rate": 0.49471899999999996,
+        "ci95": 0.0011080561281018209,
+        "p05": 0.4868,
+        "p50": 0.4945,
+        "p95": 0.4944
+      },
+      "G2_LSM_only": {
+        "rate": 0.9805100000000004,
+        "ci95": 0.0005194961420453483,
+        "p05": 0.9764,
+        "p50": 0.9807,
+        "p95": 0.9806
+      },
+      "G3_dual": {
+        "rate": 0.9853409999999997,
+        "ci95": 0.000526938226649007,
+        "p05": 0.9812,
+        "p50": 0.9856,
+        "p95": 0.9854
+      },
+      "ebpf_drop_rate": 0.505281,
+      "lsm_drop_rate": 0.01949,
+      "drop_indicator_correlation": 0.06960881851959415,
+      "p_cc": 0.01,
+      "mode": "markov",
+      "mean_outage_run": 5,
+      "analytical_ebpf": 0.49530986999999976,
+      "analytical_lsm": 0.9802188000000001,
+      "analytical_dual": 0.9850668300000004,
+      "analytical_delta_dual": 0.00027416999999929637,
+      "p_cc_hat_from_dual_rate": 0.009724456969077644
+    },
+    "common_cause_bursty_pcc_0010_L20": {
+      "G1_eBPF_only": {
+        "rate": 0.49590799999999974,
+        "ci95": 0.001150630783082044,
+        "p05": 0.4854,
+        "p50": 0.496,
+        "p95": 0.4959
+      },
+      "G2_LSM_only": {
+        "rate": 0.9808779999999993,
+        "ci95": 0.0011082533292781041,
+        "p05": 0.9717,
+        "p50": 0.9818,
+        "p95": 0.9816
+      },
+      "G3_dual": {
+        "rate": 0.9858170000000002,
+        "ci95": 0.0011137010960648283,
+        "p05": 0.9762,
+        "p50": 0.987,
+        "p95": 0.9869
+      },
+      "ebpf_drop_rate": 0.504092,
+      "lsm_drop_rate": 0.019122,
+      "drop_indicator_correlation": 0.06635674583304182,
+      "p_cc": 0.01,
+      "mode": "markov",
+      "mean_outage_run": 20,
+      "analytical_ebpf": 0.49530986999999976,
+      "analytical_lsm": 0.9802188000000001,
+      "analytical_dual": 0.9850668300000004,
+      "analytical_delta_dual": 0.0007501699999997724,
+      "p_cc_hat_from_dual_rate": 0.009246073182669456
+    },
+    "common_cause_bursty_pcc_0010_L50": {
+      "G1_eBPF_only": {
+        "rate": 0.49498800000000015,
+        "ci95": 0.0014359438889093123,
+        "p05": 0.4808,
+        "p50": 0.4957,
+        "p95": 0.4946
+      },
+      "G2_LSM_only": {
+        "rate": 0.9805229999999997,
+        "ci95": 0.002034192692430095,
+        "p05": 0.9633,
+        "p50": 0.983,
+        "p95": 0.983
+      },
+      "G3_dual": {
+        "rate": 0.9854170000000001,
+        "ci95": 0.0020362656015795186,
+        "p05": 0.9681,
+        "p50": 0.9882,
+        "p95": 0.9877
+      },
+      "ebpf_drop_rate": 0.505012,
+      "lsm_drop_rate": 0.019477,
+      "drop_indicator_correlation": 0.06870213932010363,
+      "p_cc": 0.01,
+      "mode": "markov",
+      "mean_outage_run": 50,
+      "analytical_ebpf": 0.49530986999999976,
+      "analytical_lsm": 0.9802188000000001,
+      "analytical_dual": 0.9850668300000004,
+      "analytical_delta_dual": 0.00035016999999970544,
+      "p_cc_hat_from_dual_rate": 0.009648076364524694
+    },
+    "common_cause_bursty_pcc_0050_L5": {
+      "G1_eBPF_only": {
+        "rate": 0.47460399999999986,
+        "ci95": 0.0011276114223188769,
+        "p05": 0.465,
+        "p50": 0.4755,
+        "p95": 0.4752
+      },
+      "G2_LSM_only": {
+        "rate": 0.9402910000000004,
+        "ci95": 0.0013039793091548654,
+        "p05": 0.9278,
+        "p50": 0.9409,
+        "p95": 0.9408
+      },
+      "G3_dual": {
+        "rate": 0.9449600000000004,
+        "ci95": 0.0013061161173494491,
+        "p05": 0.9327,
+        "p50": 0.9456,
+        "p95": 0.9455
+      },
+      "ebpf_drop_rate": 0.525396,
+      "lsm_drop_rate": 0.059709,
+      "drop_indicator_correlation": 0.2000424582042209,
+      "p_cc": 0.05,
+      "mode": "markov",
+      "mean_outage_run": 5,
+      "analytical_ebpf": 0.4752973499999998,
+      "analytical_lsm": 0.9406140000000001,
+      "analytical_dual": 0.9452661500000004,
+      "analytical_delta_dual": -0.00030615000000000503,
+      "p_cc_hat_from_dual_rate": 0.050307683185312424
+    },
+    "common_cause_bursty_pcc_0050_L20": {
+      "G1_eBPF_only": {
+        "rate": 0.475461,
+        "ci95": 0.0016847882163832934,
+        "p05": 0.4614,
+        "p50": 0.4756,
+        "p95": 0.4755
+      },
+      "G2_LSM_only": {
+        "rate": 0.941407,
+        "ci95": 0.002658777754836985,
+        "p05": 0.919,
+        "p50": 0.9417,
+        "p95": 0.9416
+      },
+      "G3_dual": {
+        "rate": 0.9461699999999995,
+        "ci95": 0.00268455254968123,
+        "p05": 0.9232,
+        "p50": 0.9468,
+        "p95": 0.9467
+      },
+      "ebpf_drop_rate": 0.524539,
+      "lsm_drop_rate": 0.058593,
+      "drop_indicator_correlation": 0.196912348884782,
+      "p_cc": 0.05,
+      "mode": "markov",
+      "mean_outage_run": 20,
+      "analytical_ebpf": 0.4752973499999998,
+      "analytical_lsm": 0.9406140000000001,
+      "analytical_dual": 0.9452661500000004,
+      "analytical_delta_dual": 0.0009038499999991512,
+      "p_cc_hat_from_dual_rate": 0.04909162356020136
+    },
+    "common_cause_bursty_pcc_0050_L50": {
+      "G1_eBPF_only": {
+        "rate": 0.4763809999999998,
+        "ci95": 0.002425895246341853,
+        "p05": 0.4574,
+        "p50": 0.4775,
+        "p95": 0.4773
+      },
+      "G2_LSM_only": {
+        "rate": 0.9421140000000002,
+        "ci95": 0.004450620143043438,
+        "p05": 0.8997,
+        "p50": 0.9469,
+        "p95": 0.9455
+      },
+      "G3_dual": {
+        "rate": 0.946751,
+        "ci95": 0.004482369158021681,
+        "p05": 0.9038,
+        "p50": 0.9513,
+        "p95": 0.9499
+      },
+      "ebpf_drop_rate": 0.523619,
+      "lsm_drop_rate": 0.057886,
+      "drop_indicator_correlation": 0.1966740689939104,
+      "p_cc": 0.05,
+      "mode": "markov",
+      "mean_outage_run": 50,
+      "analytical_ebpf": 0.4752973499999998,
+      "analytical_lsm": 0.9406140000000001,
+      "analytical_dual": 0.9452661500000004,
+      "analytical_delta_dual": 0.001484849999999649,
+      "p_cc_hat_from_dual_rate": 0.04850771393855613
+    }
+  },
+  "coverage_targets": {
+    "dual_ge_99pct": {
+      "target_detection_rate": 0.99,
+      "max_p_cc_analytical": 0.005042124908419043,
+      "max_p_cc_pct": 0.5042124908419043,
+      "simulated_runs_meeting_target": [
+        "independent_baseline",
+        "common_cause_iid_pcc_0001",
+        "common_cause_iid_pcc_0005"
+      ]
+    },
+    "dual_ge_95pct": {
+      "target_detection_rate": 0.95,
+      "max_p_cc_analytical": 0.045242443093937545,
+      "max_p_cc_pct": 4.5242443093937545,
+      "simulated_runs_meeting_target": [
+        "independent_baseline",
+        "common_cause_iid_pcc_0001",
+        "common_cause_iid_pcc_0005",
+        "common_cause_iid_pcc_0010",
+        "common_cause_iid_pcc_0020"
+      ]
+    }
+  },
+  "formula": {
+    "rate_dual": "rate_dual(p_cc) = (1 - p_cc) * U,  U = union coverage measured at p_cc = 0",
+    "redundancy_gain": "gain_over_eBPF(p_cc) = (1 - p_cc) * (U - C_ebpf)",
+    "self_diagnostic": "p_cc_hat = 1 - rate_dual / U"
+  }
+}

@@ -1,0 +1,1281 @@
+[
+  {
+    "commit": "e7d95055d1ab260ae91f8ba358310211476bd677",
+    "critical_operation": {
+      "code": "\t\tthis.vm = new NodeVM({\n\t\t\tconsole: 'redirect',\n\t\t\tsandbox: context,\n\t\t\trequire: options?.resolver ?? vmResolver,\n\t\t\twasm: false,\n\t\t});",
+      "file": "packages/nodes-base/nodes/Code/JavaScriptSandbox.ts",
+      "line": 0
+    },
+    "entry_id": "entry-00090",
+    "entry_point": {
+      "code": "\tasync execute(this: IExecuteFunctions) {",
+      "file": "packages/nodes-base/nodes/Code/Code.node.ts",
+      "line": 120
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "n8n",
+    "repo_url": "https://github.com/n8n-io/n8n",
+    "report_id": "GHSA-J4P8-H8MH-RH8Q",
+    "source_link": "https://github.com/advisories/GHSA-j4p8-h8mh-rh8q",
+    "trace": [
+      {
+        "code": "\tasync execute(this: IExecuteFunctions) {",
+        "file": "packages/nodes-base/nodes/Code/Code.node.ts",
+        "line": 120
+      },
+      {
+        "code": "\t\tconst runnersConfig = Container.get(TaskRunnersConfig);\n\t\tconst isJsRunner = runnersConfig.enabled;\n\t\tconst isPyRunner = runnersConfig.isNativePythonRunnerEnabled;",
+        "file": "packages/nodes-base/nodes/Code/Code.node.ts",
+        "line": 0
+      },
+      {
+        "code": "\t\tif (isJsLang && isJsRunner) {\n\t\t\tconst code = this.getNodeParameter(codeParameterName, 0) as string;\n\t\t\tconst sandbox = new JsTaskRunnerSandbox(code, nodeMode, workflowMode, this);\n\t\t\tconst numInputItems = this.getInputData().length;\n\n\t\t\treturn nodeMode === 'runOnceForAllItems'\n\t\t\t\t? [await sandbox.runCodeAllItems()]\n\t\t\t\t: [await sandbox.runCodeForEachItem(numInputItems)];",
+        "file": "packages/nodes-base/nodes/Code/Code.node.ts",
+        "line": 0
+      },
+      {
+        "code": "\t\tconst getSandbox = (index = 0) => {\n\t\t\tconst code = this.getNodeParameter(codeParameterName, index) as string;\n\n\t\t\tconst context = getSandboxContext.call(this, index);\n\t\t\tif (nodeMode === 'runOnceForAllItems') {\n\t\t\t\tcontext.items = context.$input.all();\n\t\t\t} else {\n\t\t\t\tcontext.item = context.$input.item;\n\t\t\t}\n",
+        "file": "packages/nodes-base/nodes/Code/Code.node.ts",
+        "line": 0
+      },
+      {
+        "code": "export function getSandboxContext(\n\tthis: IExecuteFunctions | ISupplyDataFunctions,\n\tindex: number,\n): SandboxContext {\n\tconst helpers = {\n\t\t...this.helpers,\n\t\thttpRequestWithAuthentication: this.helpers.httpRequestWithAuthentication.bind(this),\n\t\trequestWithAuthenticationPaginated: this.helpers.requestWithAuthenticationPaginated.bind(this),\n\t};\n\treturn {",
+        "file": "packages/nodes-base/nodes/Code/Sandbox.ts",
+        "line": 0
+      },
+      {
+        "code": "function isFilePathBlocked(resolvedFilePath: ResolvedFilePath): boolean {\n\tconst allowedPaths = getAllowedPaths();\n\tconst blockFileAccessToN8nFiles = process.env[BLOCK_FILE_ACCESS_TO_N8N_FILES] !== 'false';\n\n\tconst restrictedPaths = blockFileAccessToN8nFiles ? getN8nRestrictedPaths() : [];\n\tif (\n\t\trestrictedPaths.some((restrictedPath) => isContainedWithin(restrictedPath, resolvedFilePath))\n\t) {\n\t\treturn true;\n\t}",
+        "file": "packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts",
+        "line": 0
+      },
+      {
+        "code": "export const getFileSystemHelperFunctions = (node: INode): FileSystemHelperFunctions => ({\n\tasync createReadStream(resolvedFilePath) {\n\t\t// Get the device and inode number of the path we're checking.\n\t\tconst pathIdentity = await fsStat(resolvedFilePath);\n\t\t// Check that the path is allowed.\n\t\tif (isFilePathBlocked(resolvedFilePath)) {\n\t\t\tconst allowedPaths = getAllowedPaths();\n\t\t\tconst message = allowedPaths.length ? ` Allowed paths: ${allowedPaths.join(', ')}` : '';\n\t\t\tthrow new NodeOperationError(node, `Access to the file is not allowed.${message}`, {\n\t\t\t\tlevel: 'warning',",
+        "file": "packages/core/src/execution-engine/node-execution-context/utils/file-system-helper-functions.ts",
+        "line": 0
+      },
+      {
+        "code": "\t\tthis.vm = new NodeVM({\n\t\t\tconsole: 'redirect',\n\t\t\tsandbox: context,\n\t\t\trequire: options?.resolver ?? vmResolver,\n\t\t\twasm: false,\n\t\t});",
+        "file": "packages/nodes-base/nodes/Code/JavaScriptSandbox.ts",
+        "line": 0
+      }
+    ],
+    "verify": 0,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2025-68697",
+      "GHSA-J4P8-H8MH-RH8Q"
+    ],
+    "vuln_title": "n8n Code 节点 Legacy JS 模式内部 helpers 暴露致任意文件读写 (CVE-2025-68697) - JavaScriptSandbox.ts"
+  },
+  {
+    "commit": "f0c25036082a5e53650ae7230bcfcf9309bbb5d5",
+    "critical_operation": {
+      "code": "        async for name, data in obj.execute(",
+      "file": "autogpt_platform/backend/backend/api/features/v1.py",
+      "line": 375
+    },
+    "entry_id": "entry-00097",
+    "entry_point": {
+      "code": "async def execute_graph_block(",
+      "file": "autogpt_platform/backend/backend/api/features/v1.py",
+      "line": 361
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "AutoGPT",
+    "repo_url": "https://github.com/Significant-Gravitas/AutoGPT",
+    "report_id": "GHSA-R277-3XC5-C79V",
+    "source_link": "https://github.com/advisories/GHSA-r277-3xc5-c79v",
+    "trace": [
+      {
+        "code": "async def execute_graph_block(",
+        "file": "autogpt_platform/backend/backend/api/features/v1.py",
+        "line": 361
+      },
+      {
+        "code": "    obj = get_block(block_id)",
+        "file": "autogpt_platform/backend/backend/api/features/v1.py",
+        "line": 364
+      },
+      {
+        "code": "        async for name, data in obj.execute(",
+        "file": "autogpt_platform/backend/backend/api/features/v1.py",
+        "line": 375
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2026-24780",
+      "GHSA-R277-3XC5-C79V"
+    ],
+    "vuln_title": "AutoGPT BlockInstallationBlock 禁用绕过导致远程代码执行 - v1.py"
+  },
+  {
+    "commit": "71f357d9498cebb0efe016b0496d5fbe807539fc",
+    "critical_operation": {
+      "code": "  const result = await runCommand(\n    execArgv,\n    params.cwd?.trim() || undefined,\n    env,\n    params.timeoutMs ?? undefined,\n  );",
+      "file": "src/node-host/invoke.ts",
+      "line": 0
+    },
+    "entry_id": "entry-00146",
+    "entry_point": {
+      "code": "  \"node.invoke\": async ({ params, respond, context, client }) => {",
+      "file": "src/gateway/server-methods/nodes.ts",
+      "line": 365
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-H3F9-MJWJ-W476",
+    "source_link": "https://github.com/advisories/GHSA-h3f9-mjwj-w476",
+    "trace": [
+      {
+        "code": "  \"node.invoke\": async ({ params, respond, context, client }) => {",
+        "file": "src/gateway/server-methods/nodes.ts",
+        "line": 365
+      },
+      {
+        "code": "      const forwardedParams = sanitizeNodeInvokeParamsForForwarding({\n        command,\n        rawParams: p.params,\n        client,\n        execApprovalManager: context.execApprovalManager,\n      });",
+        "file": "src/gateway/server-methods/nodes.ts",
+        "line": 0
+      },
+      {
+        "code": "  if (opts.command === \"system.run\") {\n    return sanitizeSystemRunParamsForForwarding({\n      rawParams: opts.rawParams,\n      client: opts.client,\n      execApprovalManager: opts.execApprovalManager,\n    });\n  }",
+        "file": "src/gateway/node-invoke-sanitize.ts",
+        "line": 0
+      },
+      {
+        "code": "  const p = obj as SystemRunParamsLike;\n  const approved = p.approved === true;\n  const requestedDecision = normalizeApprovalDecision(p.approvalDecision);\n  const wantsApprovalOverride = approved || requestedDecision !== null;",
+        "file": "src/gateway/node-invoke-system-run-approval.ts",
+        "line": 0
+      },
+      {
+        "code": "  const argv = params.command.map((item) => String(item));",
+        "file": "src/node-host/invoke.ts",
+        "line": 515
+      },
+      {
+        "code": "  const rawCommand = typeof params.rawCommand === \"string\" ? params.rawCommand.trim() : \"\";",
+        "file": "src/node-host/invoke.ts",
+        "line": 516
+      },
+      {
+        "code": "  const cmdText = rawCommand || formatCommand(argv);",
+        "file": "src/node-host/invoke.ts",
+        "line": 517
+      },
+      {
+        "code": "  if (rawCommand) {\n    const allowlistEval = evaluateShellAllowlist({\n      command: rawCommand,",
+        "file": "src/node-host/invoke.ts",
+        "line": 0
+      },
+      {
+        "code": "    allowlistSatisfied =\n      security === \"allowlist\" && analysisOk ? allowlistEval.allowlistSatisfied : false;",
+        "file": "src/node-host/invoke.ts",
+        "line": 0
+      },
+      {
+        "code": "  const requiresAsk = requiresExecApproval({\n    ask,\n    security,\n    analysisOk,\n    allowlistSatisfied,\n  });",
+        "file": "src/node-host/invoke.ts",
+        "line": 0
+      },
+      {
+        "code": "  if (security === \"allowlist\" && (!analysisOk || !allowlistSatisfied) && !approvedByAsk) {",
+        "file": "src/node-host/invoke.ts",
+        "line": 723
+      },
+      {
+        "code": "  let execArgv = argv;",
+        "file": "src/node-host/invoke.ts",
+        "line": 778
+      },
+      {
+        "code": "  const result = await runCommand(\n    execArgv,\n    params.cwd?.trim() || undefined,\n    env,\n    params.timeoutMs ?? undefined,\n  );",
+        "file": "src/node-host/invoke.ts",
+        "line": 0
+      }
+    ],
+    "verify": 0,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2026-26325",
+      "GHSA-H3F9-MJWJ-W476"
+    ],
+    "vuln_title": "openclaw: rawCommand/command[] parameter inconsistency allows allowlist bypass in system.run node host handler"
+  },
+  {
+    "commit": "1636f7ff5fd78afc1bd7bc80a7970478d0821138",
+    "critical_operation": {
+      "code": "        await callGatewayTool(\n          \"node.invoke\",\n          { timeoutMs: invokeTimeoutMs },\n          buildInvokeParams(approvedByAsk, approvalDecision, approvalId),\n        );",
+      "file": "src/agents/bash-tools.exec-host-node.ts",
+      "line": 0
+    },
+    "entry_id": "entry-00198",
+    "entry_point": {
+      "code": "      const registration = await registerExecApprovalRequestForHost({\n        approvalId,\n        command: params.command,\n        commandArgv: argv,\n        env: nodeEnv,\n        workdir: params.workdir,\n        host: \"node\",\n        nodeId,\n        security: hostSecurity,\n        ask: hostAsk,",
+      "file": "src/agents/bash-tools.exec-host-node.ts",
+      "line": 0
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-Q399-23R3-HFX4",
+    "source_link": "https://github.com/advisories/GHSA-q399-23r3-hfx4",
+    "trace": [
+      {
+        "code": "      const registration = await registerExecApprovalRequestForHost({\n        approvalId,\n        command: params.command,\n        commandArgv: argv,\n        env: nodeEnv,\n        workdir: params.workdir,\n        host: \"node\",\n        nodeId,\n        security: hostSecurity,\n        ask: hostAsk,",
+        "file": "src/agents/bash-tools.exec-host-node.ts",
+        "line": 0
+      },
+      {
+        "code": "export function buildNodeShellCommand(command: string, platform?: string | null) {\n  const normalized = String(platform ?? \"\")\n    .trim()\n    .toLowerCase();\n  if (normalized.startsWith(\"win\")) {\n    return [\"cmd.exe\", \"/d\", \"/s\", \"/c\", command];\n  }\n  return [\"/bin/sh\", \"-lc\", command];\n}",
+        "file": "src/infra/node-shell.ts",
+        "line": 0
+      },
+      {
+        "code": "  const argv = buildNodeShellCommand(params.command, nodeInfo?.platform);",
+        "file": "src/agents/bash-tools.exec-host-node.ts",
+        "line": 97
+      },
+      {
+        "code": "export type CommandResolution = {\n  rawExecutable: string;\n  resolvedPath?: string;\n  executableName: string;\n  effectiveArgv?: string[];\n  wrapperChain?: string[];\n  policyBlocked?: boolean;\n  blockedWrapper?: string;\n};",
+        "file": "src/infra/exec-command-resolution.ts",
+        "line": 0
+      },
+      {
+        "code": "function resolvePlannedSegmentArgv(segment: ExecCommandSegment): string[] | null {\n  if (segment.resolution?.policyBlocked === true) {\n    return null;\n  }\n  const baseArgv =\n    segment.resolution?.effectiveArgv && segment.resolution.effectiveArgv.length > 0\n      ? segment.resolution.effectiveArgv\n      : segment.argv;\n  if (baseArgv.length === 0) {\n    return null;",
+        "file": "src/infra/exec-approvals-analysis.ts",
+        "line": 0
+      },
+      {
+        "code": "  const buildInvokeParams = (\n    approvedByAsk: boolean,\n    approvalDecision: \"allow-once\" | \"allow-always\" | null,\n    runId?: string,\n  ) =>\n    ({\n      nodeId,\n      command: \"system.run\",\n      params: {\n        command: argv,",
+        "file": "src/agents/bash-tools.exec-host-node.ts",
+        "line": 0
+      },
+      {
+        "code": "      } else if (decision === \"allow-once\") {\n        approvedByAsk = true;\n        approvalDecision = \"allow-once\";\n      } else if (decision === \"allow-always\") {\n        approvedByAsk = true;\n        approvalDecision = \"allow-always\";\n      }",
+        "file": "src/agents/bash-tools.exec-host-node.ts",
+        "line": 0
+      },
+      {
+        "code": "        await callGatewayTool(\n          \"node.invoke\",\n          { timeoutMs: invokeTimeoutMs },\n          buildInvokeParams(approvedByAsk, approvalDecision, approvalId),\n        );",
+        "file": "src/agents/bash-tools.exec-host-node.ts",
+        "line": 0
+      }
+    ],
+    "verify": 0,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2026-31997",
+      "GHSA-Q399-23R3-HFX4"
+    ],
+    "vuln_title": "OpenClaw system.run 审批机制 TOCTOU + 不可信搜索路径导致任意命令执行 (CVE-2026-31997)"
+  },
+  {
+    "commit": "a78ec81ae6016bbe2bd1d8824cbffb7518a47c10",
+    "critical_operation": {
+      "code": "        const result = await spawnAcpDirect(",
+      "file": "src/agents/tools/sessions-spawn-tool.ts",
+      "line": 129
+    },
+    "entry_id": "entry-00227",
+    "entry_point": {
+      "code": "export function createSessionsSpawnTool(opts?: {",
+      "file": "src/agents/tools/sessions-spawn-tool.ts",
+      "line": 60
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-474H-PRJG-MMW3",
+    "source_link": "https://github.com/advisories/GHSA-474h-prjg-mmw3",
+    "trace": [
+      {
+        "code": "export function createSessionsSpawnTool(opts?: {",
+        "file": "src/agents/tools/sessions-spawn-tool.ts",
+        "line": 60
+      },
+      {
+        "code": "      if (runtime === \"acp\") {",
+        "file": "src/agents/tools/sessions-spawn-tool.ts",
+        "line": 121
+      },
+      {
+        "code": "export type SpawnAcpContext = {",
+        "file": "src/agents/acp-spawn.ts",
+        "line": 48
+      },
+      {
+        "code": "export async function spawnAcpDirect(",
+        "file": "src/agents/acp-spawn.ts",
+        "line": 220
+      },
+      {
+        "code": "        const result = await spawnAcpDirect(",
+        "file": "src/agents/tools/sessions-spawn-tool.ts",
+        "line": 129
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "GHSA-474H-PRJG-MMW3"
+    ],
+    "vuln_title": "OpenClaw sandbox bypass via ACP runtime spawn - sessions-spawn-tool.ts"
+  },
+  {
+    "commit": "c070be1bc4d0d25f2be1c0d1ff0702fb5fc56efd",
+    "critical_operation": {
+      "code": "  if (options.sandbox) {\n    const resolved = options.sandbox.bridge.resolvePath({\n      filePath,\n      cwd: options.cwd,\n    });\n    return {\n      resolved: resolved.hostPath,\n      display: resolved.relativePath || resolved.hostPath,\n    };",
+      "file": "src/agents/apply-patch.ts",
+      "line": 258
+    },
+    "entry_id": "entry-00229",
+    "entry_point": {
+      "code": "export function createApplyPatchTool(\n  options: { cwd?: string; sandbox?: SandboxApplyPatchConfig; workspaceOnly?: boolean } = {},\n): AgentTool<typeof applyPatchSchema, ApplyPatchToolDetails> {",
+      "file": "src/agents/apply-patch.ts",
+      "line": 80
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-H9XM-J4QG-FVPG",
+    "source_link": "https://github.com/advisories/GHSA-h9xm-j4qg-fvpg",
+    "trace": [
+      {
+        "code": "  const applyPatchWorkspaceOnly = workspaceOnly || applyPatchConfig?.workspaceOnly !== false;",
+        "file": "src/agents/pi-tools.ts",
+        "line": 302
+      },
+      {
+        "code": "  const applyPatchTool =\n    !applyPatchEnabled || (sandboxRoot && !allowWorkspaceWrites)\n      ? null\n      : createApplyPatchTool({\n          cwd: sandboxRoot ?? workspaceRoot,\n          sandbox:\n            sandboxRoot && allowWorkspaceWrites\n              ? { root: sandboxRoot, bridge: sandboxFsBridge! }\n              : undefined,\n          workspaceOnly: applyPatchWorkspaceOnly,\n        });",
+        "file": "src/agents/pi-tools.ts",
+        "line": 405
+      },
+      {
+        "code": "      const result = await applyPatch(input, {\n        cwd,\n        sandbox,\n        workspaceOnly,\n        signal,\n      });",
+        "file": "src/agents/apply-patch.ts",
+        "line": 105
+      },
+      {
+        "code": "  const fileOps = resolvePatchFileOps(options);",
+        "file": "src/agents/apply-patch.ts",
+        "line": 139
+      },
+      {
+        "code": "      const target = await resolvePatchPath(hunk.path, options);\n      await ensureDir(target.resolved, fileOps);\n      await fileOps.writeFile(target.resolved, hunk.contents);",
+        "file": "src/agents/apply-patch.ts",
+        "line": 149
+      },
+      {
+        "code": "async function resolvePatchPath(\n  filePath: string,\n  options: ApplyPatchOptions,\n  purpose: \"readWrite\" | \"unlink\" = \"readWrite\",\n): Promise<{ resolved: string; display: string }> {\n  if (options.sandbox) {",
+        "file": "src/agents/apply-patch.ts",
+        "line": 253
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2026-32007",
+      "GHSA-H9XM-J4QG-FVPG"
+    ],
+    "vuln_title": "openclaw apply_patch 工具在沙箱挂载路径场景下缺失 workspace-root 断言导致路径穿越 - apply-patch.ts"
+  },
+  {
+    "commit": "7b4d2cb5cb8cc971e5eee880a489c227bda375fb",
+    "critical_operation": {
+      "code": "  if (deniedFlags.has(flag)) {",
+      "file": "src/infra/exec-safe-bin-policy.ts",
+      "line": 304
+    },
+    "entry_id": "entry-00232",
+    "entry_point": {
+      "code": "    execute: async (_toolCallId, args, signal, onUpdate) => {",
+      "file": "src/agents/bash-tools.exec.ts",
+      "line": 205
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-3C6H-G97W-FG78",
+    "source_link": "https://github.com/advisories/GHSA-3c6h-g97w-fg78",
+    "trace": [
+      {
+        "code": "    execute: async (_toolCallId, args, signal, onUpdate) => {",
+        "file": "src/agents/bash-tools.exec.ts",
+        "line": 205
+      },
+      {
+        "code": "        const gatewayResult = await processGatewayAllowlist({",
+        "file": "src/agents/bash-tools.exec.ts",
+        "line": 418
+      },
+      {
+        "code": "  const allowlistEval = evaluateShellAllowlist({",
+        "file": "src/agents/bash-tools.exec-host-gateway.ts",
+        "line": 72
+      },
+      {
+        "code": "    const safe = isSafeBinUsage({",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 134
+      },
+      {
+        "code": "  return validateSafeBinArgv(argv, profile);",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 92
+      },
+      {
+        "code": "      const nextIndex = consumeLongOptionToken(",
+        "file": "src/infra/exec-safe-bin-policy.ts",
+        "line": 394
+      },
+      {
+        "code": "  if (deniedFlags.has(flag)) {",
+        "file": "src/infra/exec-safe-bin-policy.ts",
+        "line": 304
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2026-32059",
+      "GHSA-3C6H-G97W-FG78"
+    ],
+    "vuln_title": "OpenClaw safeBins sort long-option abbreviation bypass allows exec approval bypass (RCE)"
+  },
+  {
+    "commit": "861718e4dcbd33354b87b84bf5df8c9d92d21307",
+    "critical_operation": {
+      "code": "            if !inSingle, !inDouble {",
+      "file": "apps/macos/Sources/OpenClaw/ExecCommandResolution.swift",
+      "line": 197
+    },
+    "entry_id": "entry-00233",
+    "entry_point": {
+      "code": "    var command: [String]",
+      "file": "apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift",
+      "line": 42
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-9P38-94JF-HGJJ",
+    "source_link": "https://github.com/advisories/GHSA-9p38-94jf-hgjj",
+    "trace": [
+      {
+        "code": "        let response = await self.onExec(payload)",
+        "file": "apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift",
+        "line": 765
+      },
+      {
+        "code": "    static func handle(_ request: ExecHostRequest) async -> ExecHostResponse {",
+        "file": "apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift",
+        "line": 355
+      },
+      {
+        "code": "    private static func buildContext(request: ExecHostRequest, command: [String]) async -> ExecApprovalContext {",
+        "file": "apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift",
+        "line": 454
+      },
+      {
+        "code": "        let allowlistResolutions = ExecCommandResolution.resolveForAllowlist(",
+        "file": "apps/macos/Sources/OpenClaw/ExecApprovalEvaluation.swift",
+        "line": 33
+      },
+      {
+        "code": "        let shell = self.extractShellCommandFromArgv(command: command, rawCommand: rawCommand)",
+        "file": "apps/macos/Sources/OpenClaw/ExecCommandResolution.swift",
+        "line": 28
+      },
+      {
+        "code": "    private static func splitShellCommandChain(_ command: String) -> [String]? {",
+        "file": "apps/macos/Sources/OpenClaw/ExecCommandResolution.swift",
+        "line": 145
+      },
+      {
+        "code": "            if ch == \"\\\"\", !inSingle {",
+        "file": "apps/macos/Sources/OpenClaw/ExecCommandResolution.swift",
+        "line": 190
+      },
+      {
+        "code": "            if !inSingle, !inDouble {",
+        "file": "apps/macos/Sources/OpenClaw/ExecCommandResolution.swift",
+        "line": 197
+      },
+      {
+        "code": "        let allowlistMatches = security == .allowlist",
+        "file": "apps/macos/Sources/OpenClaw/ExecApprovalEvaluation.swift",
+        "line": 38
+      },
+      {
+        "code": "        return await self.runCommand(",
+        "file": "apps/macos/Sources/OpenClaw/ExecApprovalsSocket.swift",
+        "line": 447
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2026-22179",
+      "GHSA-9P38-94JF-HGJJ"
+    ],
+    "vuln_title": "OpenClaw macOS OS Command Injection via Command Substitution Bypass in Allowlist Parser (CVE-2026-22179)"
+  },
+  {
+    "commit": "42d2a6188864a9c114209e35b8ea3c192792667c",
+    "critical_operation": {
+      "code": "  const matchesSafeBin =",
+      "file": "src/infra/exec-approvals-allowlist.ts",
+      "line": 84
+    },
+    "entry_id": "entry-00240",
+    "entry_point": {
+      "code": "  const envPath = env?.PATH ?? env?.Path ?? process.env.PATH ?? process.env.Path ?? \"\";",
+      "file": "src/infra/exec-approvals-analysis.ts",
+      "line": 70
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-G75X-8QQM-2VXP",
+    "source_link": "https://github.com/advisories/GHSA-g75x-8qqm-2vxp",
+    "trace": [
+      {
+        "code": "  for (const entry of entries) {",
+        "file": "src/infra/exec-approvals-analysis.ts",
+        "line": 87
+      },
+      {
+        "code": "  const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);",
+        "file": "src/infra/exec-approvals-analysis.ts",
+        "line": 107
+      },
+      {
+        "code": "  const execName = resolution?.executableName?.toLowerCase();",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 80
+      },
+      {
+        "code": "  const matchesSafeBin =",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 84
+      },
+      {
+        "code": "  if (!resolution?.resolvedPath) {",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 90
+      },
+      {
+        "code": "  return true;",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 127
+      },
+      {
+        "code": "        const allowlistEval = evaluateShellAllowlist({",
+        "file": "src/agents/bash-tools.exec.ts",
+        "line": 707
+      },
+      {
+        "code": "        if (hostSecurity === \"allowlist\" && (!analysisOk || !allowlistSatisfied)) {",
+        "file": "src/agents/bash-tools.exec.ts",
+        "line": 907
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2026-32015",
+      "GHSA-G75X-8QQM-2VXP"
+    ],
+    "vuln_title": "openclaw safeBins allowlist validation bypass via PATH manipulation"
+  },
+  {
+    "commit": "204d9fb404838221df19cc46b30e4cf53209d038",
+    "critical_operation": {
+      "code": "    if (",
+      "file": "src/infra/exec-approvals-allowlist.ts",
+      "line": 159
+    },
+    "entry_id": "entry-00245",
+    "entry_point": {
+      "code": "export async function handleSystemRunInvoke(opts: HandleSystemRunInvokeOptions): Promise<void> {",
+      "file": "src/node-host/invoke-system-run.ts",
+      "line": 262
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-7FF8-XJH3-MGH6",
+    "source_link": "https://github.com/advisories/GHSA-7ff8-xjh3-mgh6",
+    "trace": [
+      {
+        "code": "  const bins = autoAllowSkills ? await opts.skillBins.current() : new Set<string>();",
+        "file": "src/node-host/invoke-system-run.ts",
+        "line": 313
+      },
+      {
+        "code": "function evaluateSystemRunAllowlist(params: {",
+        "file": "src/node-host/invoke-system-run.ts",
+        "line": 138
+      },
+      {
+        "code": "function evaluateSegments(",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 108
+      },
+      {
+        "code": "    const rawExecutable = segment.resolution?.rawExecutable?.trim() ?? \"\";",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 155
+      },
+      {
+        "code": "export function resolveCommandResolutionFromArgv(",
+        "file": "src/infra/exec-command-resolution.ts",
+        "line": 110
+      },
+      {
+        "code": "      skillAllow = Boolean(params.skillBins?.has(executableName));",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 166
+      },
+      {
+        "code": "    const by: ExecSegmentSatisfiedBy = match",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 168
+      },
+      {
+        "code": "  const requiresAsk = requiresExecApproval({",
+        "file": "src/node-host/exec-policy.ts",
+        "line": 85
+      },
+      {
+        "code": "  const result = await opts.runCommand(",
+        "file": "src/node-host/invoke-system-run.ts",
+        "line": 465
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "GHSA-7FF8-XJH3-MGH6"
+    ],
+    "vuln_title": "openclaw Incorrect Authorization via basename allowlist matching (GHSA-7ff8-xjh3-mgh6) - exec-approvals-allowlist.ts"
+  },
+  {
+    "commit": "48c0acc26f177be2b508c104429ff3badb5aaec8",
+    "critical_operation": {
+      "code": "export function evaluateExecAllowlist(params: {",
+      "file": "src/infra/exec-approvals-allowlist.ts",
+      "line": 146
+    },
+    "entry_id": "entry-00249",
+    "entry_point": {
+      "code": "  const cmdTextResolution = resolveSystemRunCommand({",
+      "file": "src/gateway/node-invoke-system-run-approval.ts",
+      "line": 130
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-JJ82-76V6-933R",
+    "source_link": "https://github.com/advisories/GHSA-jj82-76v6-933r",
+    "trace": [
+      {
+        "code": "  const argv = command.map((v) => String(v));",
+        "file": "src/infra/system-run-command.ts",
+        "line": 152
+      },
+      {
+        "code": "  const shellCommand = extractShellCommandFromArgv(params.argv);",
+        "file": "src/infra/system-run-command.ts",
+        "line": 101
+      },
+      {
+        "code": "  const rawExecutable = argv[0]?.trim();",
+        "file": "src/infra/exec-approvals-analysis.ts",
+        "line": 104
+      },
+      {
+        "code": "  const resolvedPath = resolveExecutablePath(rawExecutable, cwd, env);",
+        "file": "src/infra/exec-approvals-analysis.ts",
+        "line": 108
+      },
+      {
+        "code": "export function matchAllowlist(",
+        "file": "src/infra/exec-approvals-analysis.ts",
+        "line": 201
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2026-27566",
+      "GHSA-JJ82-76V6-933R"
+    ],
+    "vuln_title": "OpenClaw exec allowlist bypass via env wrapper (CVE-2026-27566) - exec-approvals-allowlist.ts"
+  },
+  {
+    "commit": "3ba64916599b57978c42aafd2857d4e4fdb44d9c",
+    "critical_operation": {
+      "code": "    requesterSessionKey: spawnedBy || callerSessionKey,",
+      "file": "src/agents/tools/subagents-tool.ts",
+      "line": 231
+    },
+    "entry_id": "entry-00292",
+    "entry_point": {
+      "code": "export function createSubagentsTool(opts?: { agentSessionKey?: string }): AnyAgentTool {",
+      "file": "src/agents/tools/subagents-tool.ts",
+      "line": 349
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-4W7M-58CG-CMFF",
+    "source_link": "https://github.com/advisories/GHSA-4w7m-58cg-cmff",
+    "trace": [
+      {
+        "code": "const SUBAGENT_TOOL_DENY_LEAF = [\"sessions_list\", \"sessions_history\", \"sessions_spawn\"];",
+        "file": "src/agents/pi-tools.policy.ts",
+        "line": 67
+      },
+      {
+        "code": "function resolveSubagentDenyList(depth: number, maxSpawnDepth: number): string[] {",
+        "file": "src/agents/pi-tools.policy.ts",
+        "line": 77
+      },
+      {
+        "code": "      const requester = resolveRequesterKey({",
+        "file": "src/agents/tools/subagents-tool.ts",
+        "line": 360
+      },
+      {
+        "code": "  if (!isSubagentSessionKey(callerSessionKey)) {",
+        "file": "src/agents/tools/subagents-tool.ts",
+        "line": 199
+      },
+      {
+        "code": "  const callerDepth = getSubagentDepthFromSessionStore(callerSessionKey, { cfg: params.cfg });",
+        "file": "src/agents/tools/subagents-tool.ts",
+        "line": 209
+      },
+      {
+        "code": "  const callerEntry = resolveSessionEntryForKey({",
+        "file": "src/agents/tools/subagents-tool.ts",
+        "line": 224
+      },
+      {
+        "code": "    requesterSessionKey: spawnedBy || callerSessionKey,",
+        "file": "src/agents/tools/subagents-tool.ts",
+        "line": 231
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "GHSA-4W7M-58CG-CMFF"
+    ],
+    "vuln_title": "openclaw Leaf Subagent Cross-Sibling Steering via Improper Privilege Management - subagents-tool.ts"
+  },
+  {
+    "commit": "12dc299cdef3759486b52033e78b550d985c3371",
+    "critical_operation": {
+      "code": "content: [{ type: \"text\", text: statusText }],",
+      "file": "src/agents/tools/session-status-tool.ts",
+      "line": 388
+    },
+    "entry_id": "entry-00304",
+    "entry_point": {
+      "code": "execute: async (_toolCallId, args) => {",
+      "file": "src/agents/tools/session-status-tool.ts",
+      "line": 185
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-WCXR-59V9-RXR8",
+    "source_link": "https://github.com/advisories/GHSA-wcxr-59v9-rxr8",
+    "trace": [
+      {
+        "code": "execute: async (_toolCallId, args) => {",
+        "file": "src/agents/tools/session-status-tool.ts",
+        "line": 185
+      },
+      {
+        "code": "const requesterAgentId = resolveAgentIdFromSessionKey(",
+        "file": "src/agents/tools/session-status-tool.ts",
+        "line": 197
+      },
+      {
+        "code": "let storePath = resolveStorePath(cfg.session?.store, { agentId });",
+        "file": "src/agents/tools/session-status-tool.ts",
+        "line": 223
+      },
+      {
+        "code": "const configured = resolveDefaultModelForAgent({ cfg, agentId });",
+        "file": "src/agents/tools/session-status-tool.ts",
+        "line": 261
+      },
+      {
+        "code": "content: [{ type: \"text\", text: statusText }],",
+        "file": "src/agents/tools/session-status-tool.ts",
+        "line": 388
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2026-32918",
+      "GHSA-WCXR-59V9-RXR8"
+    ],
+    "vuln_title": "OpenClaw session_status sandbox escape via cross-session sessionKey access - session-status-tool.ts"
+  },
+  {
+    "commit": "4adfe800276f1eacd2e0af79db34af1267d6c7ec",
+    "critical_operation": {
+      "code": "  allowlist.push({ id: crypto.randomUUID(), pattern: trimmed, lastUsedAt: Date.now() });",
+      "file": "src/infra/exec-approvals.ts",
+      "line": 480
+    },
+    "entry_id": "entry-00322",
+    "entry_point": {
+      "code": "export async function processGatewayAllowlist(",
+      "file": "src/agents/bash-tools.exec-host-gateway.ts",
+      "line": 57
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-PFV5-RPCW-X34X",
+    "source_link": "https://github.com/advisories/GHSA-pfv5-rpcw-x34x",
+    "trace": [
+      {
+        "code": "export async function processGatewayAllowlist(",
+        "file": "src/agents/bash-tools.exec-host-gateway.ts",
+        "line": 57
+      },
+      {
+        "code": "      } else if (decision === \"allow-always\") {",
+        "file": "src/agents/bash-tools.exec-host-gateway.ts",
+        "line": 157
+      },
+      {
+        "code": "          const patterns = resolveAllowAlwaysPatterns({",
+        "file": "src/agents/bash-tools.exec-host-gateway.ts",
+        "line": 160
+      },
+      {
+        "code": "export function resolveAllowAlwaysPatterns(params: {",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 340
+      },
+      {
+        "code": "function collectAllowAlwaysPatterns(params: {",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 291
+      },
+      {
+        "code": "  if (!isShellWrapperSegment(params.segment)) {",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 303
+      },
+      {
+        "code": "const SHELL_WRAPPER_EXECUTABLES = new Set([",
+        "file": "src/infra/exec-approvals-allowlist.ts",
+        "line": 218
+      },
+      {
+        "code": "  allowlist.push({ id: crypto.randomUUID(), pattern: trimmed, lastUsedAt: Date.now() });",
+        "file": "src/infra/exec-approvals.ts",
+        "line": 480
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2026-29607",
+      "GHSA-6J27-PC5C-M8W8",
+      "GHSA-PFV5-RPCW-X34X"
+    ],
+    "vuln_title": "openclaw allow-always allowlist bypass via dispatch-wrapper executable path persistence - exec-approvals-allowlist.ts"
+  },
+  {
+    "commit": "6a1eedf10b1b1cbdd25a2d6c8cc24b06b303ebd1",
+    "critical_operation": {
+      "code": "  const childSessionKey = `agent:${targetAgentId}:subagent:${crypto.randomUUID()}`;",
+      "file": "src/agents/subagent-spawn.ts",
+      "line": 271
+    },
+    "entry_id": "entry-00327",
+    "entry_point": {
+      "code": "    execute: async (_toolCallId, args) => {",
+      "file": "src/agents/tools/sessions-spawn-tool.ts",
+      "line": 46
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-WR92-6W3G-2HWC",
+    "source_link": "https://github.com/advisories/GHSA-wr92-6w3g-2hwc",
+    "trace": [
+      {
+        "code": "    execute: async (_toolCallId, args) => {",
+        "file": "src/agents/tools/sessions-spawn-tool.ts",
+        "line": 46
+      },
+      {
+        "code": "          : await spawnSubagentDirect(",
+        "file": "src/agents/tools/sessions-spawn-tool.ts",
+        "line": 90
+      },
+      {
+        "code": "  const requesterInternalKey = requesterSessionKey",
+        "file": "src/agents/subagent-spawn.ts",
+        "line": 218
+      },
+      {
+        "code": "  if (callerDepth >= maxSpawnDepth) {",
+        "file": "src/agents/subagent-spawn.ts",
+        "line": 234
+      },
+      {
+        "code": "  if (activeChildren >= maxChildren) {",
+        "file": "src/agents/subagent-spawn.ts",
+        "line": 243
+      },
+      {
+        "code": "    if (!allowAny && !allowSet.has(normalizedTargetId)) {",
+        "file": "src/agents/subagent-spawn.ts",
+        "line": 263
+      },
+      {
+        "code": "  const childSessionKey = `agent:${targetAgentId}:subagent:${crypto.randomUUID()}`;",
+        "file": "src/agents/subagent-spawn.ts",
+        "line": 271
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "CVE-2026-32048",
+      "GHSA-P7GR-F84W-HQG5",
+      "GHSA-WR92-6W3G-2HWC"
+    ],
+    "vuln_title": "OpenClaw sandbox bypass via cross-agent sessions_spawn inheritance failure"
+  },
+  {
+    "commit": "4d5f762b7dcb6de8f0d002d29c74bd4b013aa2db",
+    "critical_operation": {
+      "code": "        const result = await callGatewayTool(\"config.patch\", gatewayOpts, {",
+      "file": "src/agents/tools/gateway-tool.ts",
+      "line": 200
+    },
+    "entry_id": "entry-00407",
+    "entry_point": {
+      "code": "    execute: async (_toolCallId, args) => {",
+      "file": "src/agents/tools/gateway-tool.ts",
+      "line": 81
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-V3QC-WRWX-J3PW",
+    "source_link": "https://github.com/advisories/GHSA-v3qc-wrwx-j3pw",
+    "trace": [
+      {
+        "code": "      const action = readStringParam(params, \"action\", { required: true });",
+        "file": "src/agents/tools/gateway-tool.ts",
+        "line": 83
+      },
+      {
+        "code": "      const resolveConfigWriteParams = async (): Promise<{",
+        "file": "src/agents/tools/gateway-tool.ts",
+        "line": 154
+      },
+      {
+        "code": "        const raw = readStringParam(params, \"raw\", { required: true });",
+        "file": "src/agents/tools/gateway-tool.ts",
+        "line": 161
+      },
+      {
+        "code": "        const result = await callGatewayTool(\"config.patch\", gatewayOpts, {",
+        "file": "src/agents/tools/gateway-tool.ts",
+        "line": 200
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "GHSA-V3QC-WRWX-J3PW"
+    ],
+    "vuln_title": "OpenClaw Agent Consent Bypass via Unguarded config.patch/config.apply (GHSA-v3qc-wrwx-j3pw) - gateway-tool.ts"
+  },
+  {
+    "commit": "9d5c5230c569fac6c0633dcd0d0b4bfb8736bf69",
+    "critical_operation": {
+      "code": "function applyMessageProviderToolPolicy(\n  tools: AnyAgentTool[],\n  messageProvider?: string,\n): AnyAgentTool[] {\n  const normalizedProvider = normalizeMessageProvider(messageProvider);\n  if (!normalizedProvider) {\n    return tools;\n  }\n  const deniedTools = TOOL_DENY_BY_MESSAGE_PROVIDER[normalizedProvider];\n  if (!deniedTools || deniedTools.length === 0) {\n    return tools;\n  }\n  const deniedSet = new Set(deniedTools);\n  return tools.filter((tool) => !deniedSet.has(tool.name));\n}",
+      "file": "src/agents/pi-tools.ts",
+      "line": 76
+    },
+    "entry_id": "entry-00411",
+    "entry_point": {
+      "code": "  \"node.event\": async ({ params, respond, context, client }) => {",
+      "file": "src/gateway/server-methods/nodes.ts",
+      "line": 1033
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-GJM7-HW8F-73RQ",
+    "source_link": "https://github.com/advisories/GHSA-gjm7-hw8f-73rq",
+    "trace": [
+      {
+        "code": "      await handleNodeEvent(nodeContext, nodeId, {\n        event: p.event,\n        payloadJSON,\n      });\n      respond(true, { ok: true }, undefined);",
+        "file": "src/gateway/server-methods/nodes.ts",
+        "line": 0
+      },
+      {
+        "code": "          messageChannel: \"node\",\n          senderIsOwner: false,\n          allowModelOverride: false,\n        },\n        defaultRuntime,\n        ctx.deps,\n      ).catch((err) => {\n        ctx.logGateway.warn(`agent failed node=${nodeId}: ${formatForLog(err)}`);\n      });\n      return;",
+        "file": "src/gateway/server-node-events.ts",
+        "line": 0
+      },
+      {
+        "code": "    const resolvedMessageProvider = params.messageChannel ?? params.messageProvider;",
+        "file": "src/agents/pi-embedded-runner/compact.ts",
+        "line": 432
+      },
+      {
+        "code": "  const toolsForMessageProvider = applyMessageProviderToolPolicy(\n    toolsForMemoryFlush,\n    options?.messageProvider,\n  );",
+        "file": "src/agents/pi-tools.ts",
+        "line": 0
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "GHSA-GJM7-HW8F-73RQ"
+    ],
+    "vuln_title": "openclaw 节点权限提升导致网关侧 RCE (GHSA-gjm7-hw8f-73rq) - pi-tools.ts"
+  },
+  {
+    "commit": "50cd76d8a3f2fc06d1a5af63840abd3d7a1bcd02",
+    "critical_operation": {
+      "code": "  const proc = await executeProcess({",
+      "file": "server/src/services/workspace-runtime.ts",
+      "line": 746
+    },
+    "entry_id": "entry-00437",
+    "entry_point": {
+      "code": "  router.patch(\"/agents/:id\", validate(updateAgentSchema), async (req, res) => {",
+      "file": "server/src/routes/agents.ts",
+      "line": 1870
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "paperclipai/paperclip",
+    "repo_url": "https://github.com/paperclipai/paperclip",
+    "report_id": "GHSA-265W-RF2W-CJH4",
+    "source_link": "https://github.com/advisories/GHSA-265w-rf2w-cjh4",
+    "trace": [
+      {
+        "code": "  router.patch(\"/agents/:id\", validate(updateAgentSchema), async (req, res) => {",
+        "file": "server/src/routes/agents.ts",
+        "line": 1870
+      },
+      {
+        "code": "    await assertCanUpdateAgent(req, existing);",
+        "file": "server/src/routes/agents.ts",
+        "line": 1877
+      },
+      {
+        "code": "    if (hasOwn(patchData, \"adapterConfig\")) {",
+        "file": "server/src/routes/agents.ts",
+        "line": 1887
+      },
+      {
+        "code": "    const agent = await svc.update(id, patchData, {",
+        "file": "server/src/routes/agents.ts",
+        "line": 1967
+      },
+      {
+        "code": "export async function realizeExecutionWorkspace(input: {",
+        "file": "server/src/services/workspace-runtime.ts",
+        "line": 980
+      },
+      {
+        "code": "  const rawStrategy = parseObject(input.config.workspaceStrategy);",
+        "file": "server/src/services/workspace-runtime.ts",
+        "line": 987
+      },
+      {
+        "code": "    await provisionExecutionWorktree({",
+        "file": "server/src/services/workspace-runtime.ts",
+        "line": 1044
+      },
+      {
+        "code": "  const provisionCommand = asString(input.strategy.provisionCommand, \"\").trim();",
+        "file": "server/src/services/workspace-runtime.ts",
+        "line": 901
+      },
+      {
+        "code": "  await recordWorkspaceCommandOperation(input.recorder, {",
+        "file": "server/src/services/workspace-runtime.ts",
+        "line": 905
+      },
+      {
+        "code": "  const proc = await executeProcess({",
+        "file": "server/src/services/workspace-runtime.ts",
+        "line": 746
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "GHSA-265W-RF2W-CJH4"
+    ],
+    "vuln_title": "OS Command Injection via adapterConfig.workspaceStrategy.provisionCommand in PATCH /agents/:id"
+  },
+  {
+    "commit": "777c6f7580918e6711c4457cbd91161cbaefe311",
+    "critical_operation": {
+      "code": "    if (params.sandboxAvailable && params.requestedTarget === \"gateway\") {",
+      "file": "src/agents/bash-tools.exec-runtime.ts",
+      "line": 231
+    },
+    "entry_id": "entry-00496",
+    "entry_point": {
+      "code": "  host: Type.Optional(",
+      "file": "src/agents/bash-tools.exec-runtime.ts",
+      "line": 151
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-736R-JWJ6-4W23",
+    "source_link": "https://github.com/advisories/GHSA-736r-jwj6-4w23",
+    "trace": [
+      {
+        "code": "  host: Type.Optional(\n    Type.String({\n      description: \"Exec host/target (auto|sandbox|gateway|node).\",\n    }),\n  ),",
+        "file": "src/agents/bash-tools.exec-runtime.ts",
+        "line": 0
+      },
+      {
+        "code": "}) {\n  const configuredTarget = params.configuredTarget ?? \"auto\";\n  const requestedTarget = params.requestedTarget ?? null;\n  if (\n    requestedTarget &&\n    !isRequestedExecTargetAllowed({\n      configuredTarget,\n      requestedTarget,\n      sandboxAvailable: params.sandboxAvailable,\n    })",
+        "file": "src/agents/bash-tools.exec-runtime.ts",
+        "line": 0
+      },
+      {
+        "code": "    return true;\n  }\n  if (params.configuredTarget === \"auto\") {\n    if (params.sandboxAvailable && params.requestedTarget === \"gateway\") {\n      return false;\n    }\n    return true;\n  }\n  return false;\n}",
+        "file": "src/agents/bash-tools.exec-runtime.ts",
+        "line": 0
+      },
+      {
+        "code": "  const selectedTarget = requestedTarget ?? configuredTarget;\n  const resolvedTarget = params.elevatedRequested\n    ? selectedTarget === \"node\"\n      ? \"node\"\n      : \"gateway\"\n    : selectedTarget;\n  const effectiveHost =\n    resolvedTarget === \"auto\" ? (params.sandboxAvailable ? \"sandbox\" : \"gateway\") : resolvedTarget;\n  return {\n    configuredTarget,",
+        "file": "src/agents/bash-tools.exec-runtime.ts",
+        "line": 0
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "GHSA-736R-JWJ6-4W23"
+    ],
+    "vuln_title": "openclaw 沙箱 exec 路由授权绕过 (GHSA-736r-jwj6-4w23) - bash-tools.exec-runtime.ts"
+  },
+  {
+    "commit": "0a105c0900de701d2ee9f1abc96b017afbd0afdd",
+    "critical_operation": {
+      "code": "function unwrapArgvForMutableOperand(argv: string[]): { argv: string[]; baseIndex: number } {",
+      "file": "src/node-host/invoke-system-run-plan.ts",
+      "line": 286
+    },
+    "entry_id": "entry-00505",
+    "entry_point": {
+      "code": "export function buildSystemRunApprovalPlan(params: {",
+      "file": "src/node-host/invoke-system-run-plan.ts",
+      "line": 1164
+    },
+    "origin": "GitHub Advisory Database (reviewed)",
+    "project": "openclaw",
+    "repo_url": "https://github.com/openclaw/openclaw",
+    "report_id": "GHSA-2CQ5-MF3V-MX44",
+    "source_link": "https://github.com/advisories/GHSA-2cq5-mf3v-mx44",
+    "trace": [
+      {
+        "code": "  const command = resolveSystemRunCommandRequest({",
+        "file": "src/node-host/invoke-system-run-plan.ts",
+        "line": 1171
+      },
+      {
+        "code": "  const mutableFileOperand = resolveMutableFileOperandSnapshotSync({",
+        "file": "src/node-host/invoke-system-run-plan.ts",
+        "line": 1195
+      },
+      {
+        "code": "  const argvIndex = resolveMutableFileOperandIndex(params.argv, params.cwd);",
+        "file": "src/node-host/invoke-system-run-plan.ts",
+        "line": 926
+      },
+      {
+        "code": "function resolveMutableFileOperandIndex(argv: string[], cwd: string | undefined): number | null {",
+        "file": "src/node-host/invoke-system-run-plan.ts",
+        "line": 749
+      },
+      {
+        "code": "    const shellMultiplexerUnwrap = unwrapKnownShellMultiplexerInvocation(current);",
+        "file": "src/node-host/invoke-system-run-plan.ts",
+        "line": 296
+      },
+      {
+        "code": "export function unwrapKnownShellMultiplexerInvocation(",
+        "file": "src/infra/shell-wrapper-resolution.ts",
+        "line": 161
+      },
+      {
+        "code": "function isMutableScriptRunner(executable: string): boolean {",
+        "file": "src/node-host/invoke-system-run-plan.ts",
+        "line": 745
+      },
+      {
+        "code": "const INTERPRETER_LIKE_SAFE_BINS = new Set([",
+        "file": "src/infra/exec-safe-bin-runtime-policy.ts",
+        "line": 23
+      },
+      {
+        "code": "export function isInterpreterLikeSafeBin(raw: string): boolean {",
+        "file": "src/infra/exec-safe-bin-runtime-policy.ts",
+        "line": 69
+      },
+      {
+        "code": "  if (!mutableFileOperand.ok) {",
+        "file": "src/node-host/invoke-system-run-plan.ts",
+        "line": 1200
+      }
+    ],
+    "verify": 1,
+    "vuln_category_l1": "业务逻辑",
+    "vuln_category_l2": "BL-AGENT-CAPABILITY(AI/Agent能力边界绕过)",
+    "vuln_ids": [
+      "GHSA-2CQ5-MF3V-MX44"
+    ],
+    "vuln_title": "openclaw multi-call binary exec approval bypass (GHSA-2cq5-mf3v-mx44)"
+  }
+]

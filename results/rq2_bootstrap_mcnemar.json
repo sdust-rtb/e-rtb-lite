@@ -1,0 +1,58 @@
+{
+  "metadata": {
+    "timestamp": "2026-06-15T14:42:50.901905",
+    "input": "results/rq2_jury_cases_raw.json",
+    "n_cases": 180,
+    "het_config": "E-RTB-Lite_heterogeneous",
+    "hom_config": "B3_homogeneous",
+    "abl_config": "ablation_pure_llm",
+    "n_bootstrap": 100000,
+    "seed": 42
+  },
+  "het_vs_hom": {
+    "het_error_rate": 0.03333333333333333,
+    "hom_error_rate": 0.15,
+    "abs_reduction": -0.11666666666666667,
+    "rel_reduction": -0.7777777777777778,
+    "bootstrap_superiority": 1.0,
+    "delta_error_mean": -0.11664911111111112,
+    "delta_error_ci95": [
+      -0.16666666666666666,
+      -0.07222222222222222
+    ],
+    "delta_pos_ci95": [
+      0.07222222222222222,
+      0.16666666666666666
+    ],
+    "mcnemar": {
+      "a": 153,
+      "b": 0,
+      "c": 21,
+      "d": 6,
+      "chi2": 19.047619047619047,
+      "p_value": 1.2749674921097076e-05,
+      "significant_05": true
+    }
+  },
+  "abl_vs_hom": {
+    "b": 0,
+    "c": 23,
+    "chi2": 21.043478260869566,
+    "p_value": 4.489784498638631e-06,
+    "error_rate": 0.022222222222222223,
+    "significant_05": true
+  },
+  "paper_claims": {
+    "bootstrap_superiority": 0.988,
+    "ci95": [
+      0.0111,
+      0.1222
+    ],
+    "mcnemar_p_lt": 0.05
+  },
+  "match_paper": {
+    "bootstrap_superiority_match": true,
+    "ci95_overlap": true,
+    "mcnemar_significant": true
+  }
+}

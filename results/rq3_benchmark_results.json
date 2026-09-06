@@ -1,0 +1,37 @@
+[
+  {
+    "component": "HMAC-SHA256 verify",
+    "n": 10000,
+    "p50_us": 2.9,
+    "p95_us": 5.7,
+    "p99_us": 10.0
+  },
+  {
+    "component": "Ed25519 sign",
+    "n": 10000,
+    "p50_us": 34.0,
+    "p95_us": 71.3,
+    "p99_us": 104.6
+  },
+  {
+    "component": "Ed25519 verify",
+    "n": 10000,
+    "p50_us": 95.8,
+    "p95_us": 184.7,
+    "p99_us": 281.6
+  },
+  {
+    "component": "bsigner full sign",
+    "n": 10000,
+    "p50_us": 41.8,
+    "p95_us": 83.6,
+    "p99_us": 128.3
+  },
+  {
+    "component": "OPA risk evaluation",
+    "n": 10000,
+    "p50_us": 6.8,
+    "p95_us": 12.5,
+    "p99_us": 23.3
+  }
+]

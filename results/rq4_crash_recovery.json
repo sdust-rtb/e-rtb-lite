@@ -1,0 +1,9 @@
+{
+  "pre_crash_count": 100,
+  "crash_blocked": 20,
+  "crash_new_evidence": 0,
+  "recovery_signed": 50,
+  "total_evidence": 150,
+  "sig_pass": 150,
+  "sig_fail": 0
+}

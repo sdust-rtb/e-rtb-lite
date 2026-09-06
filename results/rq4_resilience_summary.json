@@ -1,0 +1,48 @@
+{
+  "crash_recovery": {
+    "pre_crash_count": 100,
+    "crash_blocked": 20,
+    "crash_new_evidence": 0,
+    "recovery_signed": 50,
+    "total_evidence": 150,
+    "sig_pass": 150,
+    "sig_fail": 0
+  },
+  "network_partition": {
+    "online_signed": 9,
+    "offline_blocked": 3,
+    "offline_signed": 3,
+    "offline_cached": 3,
+    "audit_pass": 3,
+    "total_evidence": 12,
+    "total_sig_pass": 12
+  },
+  "observation_degradation": {
+    "phases": [
+      {
+        "phase": "dual_active",
+        "events": 100,
+        "captured": 100
+      },
+      {
+        "phase": "ebpf_off",
+        "events": 100,
+        "captured": 100
+      },
+      {
+        "phase": "both_off",
+        "events": 100,
+        "captured": 0,
+        "signed": 0
+      },
+      {
+        "phase": "restored",
+        "events": 100,
+        "captured": 100
+      }
+    ],
+    "total_evidence": 300,
+    "sig_pass": 300,
+    "unobserved_during_phase3": 100
+  }
+}

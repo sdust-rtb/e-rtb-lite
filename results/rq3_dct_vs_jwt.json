@@ -1,0 +1,102 @@
+{
+  "experiment": "rq3_dct_vs_jwt",
+  "n_trials": 1000,
+  "results": [
+    {
+      "attack": "A1: Cross-container Migration",
+      "trials": 1000,
+      "accepted": 1000,
+      "rejected": 0,
+      "reject_rate": 0.0,
+      "variant": "B1: Plain JWT"
+    },
+    {
+      "attack": "A2: Post-revoke Replay",
+      "trials": 1000,
+      "accepted": 1000,
+      "rejected": 0,
+      "reject_rate": 0.0,
+      "variant": "B1: Plain JWT"
+    },
+    {
+      "attack": "A3: Chain_Anchor Forgery",
+      "trials": 1000,
+      "accepted": 1000,
+      "rejected": 0,
+      "reject_rate": 0.0,
+      "variant": "B1: Plain JWT"
+    },
+    {
+      "attack": "A1: Cross-container Migration",
+      "trials": 1000,
+      "accepted": 0,
+      "rejected": 1000,
+      "reject_rate": 1.0,
+      "variant": "B2: JWT + env"
+    },
+    {
+      "attack": "A2: Post-revoke Replay",
+      "trials": 1000,
+      "accepted": 1000,
+      "rejected": 0,
+      "reject_rate": 0.0,
+      "variant": "B2: JWT + env"
+    },
+    {
+      "attack": "A3: Chain_Anchor Forgery",
+      "trials": 1000,
+      "accepted": 1000,
+      "rejected": 0,
+      "reject_rate": 0.0,
+      "variant": "B2: JWT + env"
+    },
+    {
+      "attack": "A1: Cross-container Migration",
+      "trials": 1000,
+      "accepted": 0,
+      "rejected": 1000,
+      "reject_rate": 1.0,
+      "variant": "B3: DCT env-only"
+    },
+    {
+      "attack": "A2: Post-revoke Replay",
+      "trials": 1000,
+      "accepted": 0,
+      "rejected": 1000,
+      "reject_rate": 1.0,
+      "variant": "B3: DCT env-only"
+    },
+    {
+      "attack": "A3: Chain_Anchor Forgery",
+      "trials": 1000,
+      "accepted": 1000,
+      "rejected": 0,
+      "reject_rate": 0.0,
+      "variant": "B3: DCT env-only"
+    },
+    {
+      "attack": "A1: Cross-container Migration",
+      "trials": 1000,
+      "accepted": 0,
+      "rejected": 1000,
+      "reject_rate": 1.0,
+      "variant": "B4: DCT+ (full)"
+    },
+    {
+      "attack": "A2: Post-revoke Replay",
+      "trials": 1000,
+      "accepted": 0,
+      "rejected": 1000,
+      "reject_rate": 1.0,
+      "variant": "B4: DCT+ (full)"
+    },
+    {
+      "attack": "A3: Chain_Anchor Forgery",
+      "trials": 1000,
+      "accepted": 0,
+      "rejected": 1000,
+      "reject_rate": 1.0,
+      "variant": "B4: DCT+ (full)"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "metadata": {
+    "timestamp": "2026-06-15T13:12:37.087691",
+    "api_base": "http://localhost:8000/v1",
+    "models": [
+      "/public/huggingface-models/Qwen/Qwen2.5-3B-Instruct",
+      "/public/huggingface-models/THUDM/glm-4-9b-chat",
+      "DeepSeek-V3.2"
+    ],
+    "base_urls": [
+      "http://localhost:8000/v1",
+      "http://localhost:8001/v1",
+      "https://maas-api.ebcloud.com/v1"
+    ],
+    "n_rer_cases": 180,
+    "n_ambiguous_cases": 60,
+    "skip_api": false
+  },
+  "summary": {
+    "E-RTB-Lite_heterogeneous": {
+      "name": "E-RTB-Lite异构",
+      "epsilon": 0.0333,
+      "fpr": 0.0,
+      "fnr": 0.0333,
+      "rho_eff": 1.4438,
+      "pairwise_rho": {
+        "rho_0_1": 0.6245,
+        "rho_0_2": 0.6257,
+        "rho_1_2": 0.9026
+      },
+      "total_cases": 180,
+      "correct": 174,
+      "fp": 0,
+      "fn": 6
+    },
+    "B3_homogeneous": {
+      "name": "B3同质LLM",
+      "epsilon": 0.15,
+      "fpr": 0.0333,
+      "fnr": 0.1167,
+      "rho_eff": 1.3692,
+      "pairwise_rho": {
+        "rho_0_1": 0.6972,
+        "rho_0_2": 0.6704,
+        "rho_1_2": 0.6861
+      },
+      "total_cases": 180,
+      "correct": 153,
+      "fp": 6,
+      "fn": 21
+    },
+    "ablation_pure_llm": {
+      "name": "消融纯LLM异构",
+      "epsilon": 0.0222,
+      "fpr": 0.0,
+      "fnr": 0.0222,
+      "rho_eff": 1.448,
+      "pairwise_rho": {
+        "rho_0_1": 0.6245,
+        "rho_0_2": 0.6034,
+        "rho_1_2": 0.9274
+      },
+      "total_cases": 180,
+      "correct": 176,
+      "fp": 0,
+      "fn": 4
+    }
+  }
+}
