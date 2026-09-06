@@ -1,0 +1,331 @@
+{
+  "artifact_id": "E-RTB-Lite-CCPE",
+  "paper": "A Lightweight Runtime Governance Middleware for Autonomous Agents in Containerized Environments",
+  "version": "revised-v2",
+  "note": "Machine-readable artifact manifest. Paths are relative to this artifact root. 'simulation' experiments are pure post-processing on captured baseline data (no kernel/cloud needed); 'real' experiments require the specified hardware.",
+  "environment": {
+    "local_dev": {
+      "cpu": "Intel i7-11800H",
+      "ram_gb": 16,
+      "gpu": "NVIDIA RTX 3050",
+      "os": "Windows 10/11"
+    },
+    "ebpf_host": {
+      "vcpu": 2,
+      "ram_gb": 4,
+      "os": "Ubuntu 22.04",
+      "kernel": "5.15",
+      "bcc": "required (root)"
+    },
+    "llm_gpu": {
+      "gpu": "NVIDIA A40",
+      "gpu_mem_gb": 48,
+      "vllm": "v0.20.1",
+      "os": "Ubuntu 22.04"
+    },
+    "python": "3.9 (cpython-39 bytecode in repo); 3.13 also available",
+    "models": {
+      "qwen": "Qwen/Qwen2.5-3B-Instruct",
+      "glm": "THUDM/glm-4-9b-chat",
+      "third_llm_ablation": "DeepSeek-V3.2 (via API)",
+      "rego": "local deterministic rule engine (no API)"
+    },
+    "decoding": "temperature=0 (greedy) for deterministic LLM verdicts; homogeneous baseline uses temperature perturbation to break determinism"
+  },
+  "seeds": {
+    "data_generation": 42,
+    "cross_node_rounds": "42 + i for i in 0..29 (N=30)",
+    "figure_generation": 42,
+    "dual_obs_bursty": 20260905,
+    "dual_obs_original_uniform": "NOT seeded (reproducibility gap; see limitations)",
+    "bsigner_key_derivation": "os.urandom(32) (non-deterministic by design; key material not committed)",
+    "single_juror_stats": "deterministic post-processing over rq2_jury_cases_raw.json (no RNG)",
+    "dual_obs_common_cause": 20260905
+  },
+  "experiments": [
+    {
+      "id": "rq1_forgery",
+      "description": "300,000 adversarial forgery attempts (MAC forgery, replay, hash-chain tampering), 100,000 per class",
+      "type": "real (CPU)",
+      "scripts": [
+        "scripts/rq1/attack_simulator.py",
+        "scripts/rq1/invariant_checker.py"
+      ],
+      "raw_output": [
+        "results/rq1_attack_results.json",
+        "results/rq1_invariant_results.json"
+      ],
+      "paper": {
+        "section": "7.2 Evidence Integrity",
+        "table": "Table 8 (forgery attack results)",
+        "claim": "zero forgery; Clopper-Pearson 99% upper bound 1.77e-5 (aggregate)"
+      }
+    },
+    {
+      "id": "rq2_dual_obs",
+      "description": "Dual-observation redundancy: eBPF-only / LSM-only / dual under 10/30/50% eBPF loss (uniform i.i.d. loss simulation over 27,210-event baseline, n=100 repeats)",
+      "type": "simulation (post-processing on captured baseline)",
+      "scripts": [
+        "scripts/rq2/dual_observation.py",
+        "scripts/rq2/ebpf_runner.py"
+      ],
+      "raw_output": [
+        "results/rq2_real_dual_obs.json",
+        "results/rq2_real_dual_obs_baseline.json"
+      ],
+      "paper": {
+        "section": "7.3 Dual Observation Redundancy",
+        "table": "Table 10 (dual observation detection rate)",
+        "figure": "Figure 6",
+        "claim": "99.49% dual vs 50.02% eBPF-only vs 99.00% LSM-only at 50% loss"
+      }
+    },
+    {
+      "id": "rq2_dual_obs_bursty",
+      "description": "Bursty-loss extension: two-state Markov (KEEP/DROP) eBPF loss calibrated to 50% mean drop, mean drop-run length 5/20/50; identical baseline, detection definition, n=100, fixed seed",
+      "type": "simulation (post-processing)",
+      "scripts": [
+        "scripts/rq2/dual_obs_bursty.py"
+      ],
+      "raw_output": [
+        "results/rq2_dual_obs_bursty.json"
+      ],
+      "seed": 20260905,
+      "paper": {
+        "section": "7.3 (Bursty loss)",
+        "claim": "dual-path detection unchanged (99.51%) under bursty loss, conditional on eBPF/LSM structural independence"
+      }
+    },
+    {
+      "id": "rq2_jury",
+      "description": "Heterogeneous jury ruling quality: 180 cases (120 unambiguous + 60 ambiguous), 3 configurations (heterogeneous Qwen+GLM+Rego, homogeneous Qwen x3 temp-perturbed, without-Rego Qwen+GLM+DeepSeek); commit-reveal voting; McNemar; rho_eff",
+      "type": "real (A40 GPU, vLLM) + local Rego",
+      "scripts": [
+        "scripts/rq2/jury_quality.py",
+        "scripts/rq2/jury_quality_real.py",
+        "scripts/rq2/bootstrap_jury.py",
+        "scripts/rq2/ambiguous_analysis.py"
+      ],
+      "raw_output": [
+        "results/rq2_jury_results.json",
+        "results/rq2_jury_cases_raw.json",
+        "results/rq2_ambiguous_consensus.json",
+        "results/rq2_bootstrap_mcnemar.json"
+      ],
+      "dataset": "data/arbitration_cases.json",
+      "paper": {
+        "section": "7.4 Ruling Quality / 5.3 Spectral Compression",
+        "table": "Table 12 (jury ruling quality), Table 14 (ambiguous consensus)",
+        "figure": "Figure 4, Figure 7",
+        "claim": "error rate 3.33% vs 15.00%; McNemar n=180 b=0 c=21 chi2=19.05 p=1.27e-5 (robust on 120 unambiguous: c=15 p~3.1e-4)"
+      }
+    },
+    {
+      "id": "rq2_e2e",
+      "description": "End-to-end 23-step attack-chain latency with live LLM inference (A40, vLLM); mock and real signer variants",
+      "type": "real (A40 GPU)",
+      "scripts": [
+        "scripts/end_to_end_e2e.py"
+      ],
+      "raw_output": [
+        "results/rq2_e2e_results_real_20260512_115914.json",
+        "results/e2e_real_20260512_152042.json"
+      ],
+      "paper": {
+        "section": "7.6 End-to-End Attack Chain",
+        "figure": "Figure 8 (e2e latency)",
+        "claim": "P50 = 929.6 ms full chain (single representative scenario)"
+      }
+    },
+    {
+      "id": "rq3_benchmark",
+      "description": "Component benchmark: bsigner signing/verification latency, eBPF capture, OPA/Rego evaluation, verifier O(1)",
+      "type": "real (CPU)",
+      "scripts": [
+        "scripts/rq3/micro_benchmark.py"
+      ],
+      "raw_output": [
+        "results/rq3_benchmark_results.json"
+      ],
+      "paper": {
+        "section": "7.5 / 6",
+        "table": "Table 15 (component benchmark)",
+        "claim": "bsigner P50 41.8 us, P95 83.6 us; Rego P50 6.8 us"
+      }
+    },
+    {
+      "id": "rq3_stress",
+      "description": "Concurrent signer stress (1-50 agents, single global mutex)",
+      "type": "real (CPU)",
+      "scripts": [
+        "scripts/rq3/stress_test.py"
+      ],
+      "raw_output": [
+        "results/rq3_stress_results.json"
+      ],
+      "paper": {
+        "section": "7.7 Concurrent Stress",
+        "table": "Table 16",
+        "claim": "scales to 50 agents; lock contention noted as future scalability work"
+      }
+    },
+    {
+      "id": "rq3_dct_vs_jwt",
+      "description": "DCT+ credential binding ablation (B1-B4) vs JWT baseline",
+      "type": "real (CPU)",
+      "scripts": [
+        "scripts/rq3/dct_vs_jwt.py"
+      ],
+      "raw_output": [
+        "results/rq3_dct_vs_jwt.json"
+      ],
+      "paper": {
+        "section": "7.8 Credential Ablation",
+        "table": "Table 17",
+        "claim": "DCT+ binding ablation"
+      }
+    },
+    {
+      "id": "rq4_ablation",
+      "description": "Graduated-revocation state-machine ablation (attack modes: burst, sustained, low-freq, fluctuating, slow-arb, erosion)",
+      "type": "simulation",
+      "scripts": [
+        "scripts/rq4/state_ablation.py"
+      ],
+      "raw_output": [
+        "results/rq4_ablation_results.json"
+      ],
+      "paper": {
+        "section": "7.9 Ablation",
+        "table": "Table 19 (ablation)",
+        "claim": "state-machine ablation"
+      }
+    },
+    {
+      "id": "rq4_dynamics",
+      "description": "Risk-reputation dynamics trajectories (burst / sustained / low-freq), 150-step simulation",
+      "type": "simulation",
+      "scripts": [
+        "scripts/rq4/dynamics_sim.py"
+      ],
+      "raw_output": [
+        "results/rq4_dynamics_results.json"
+      ],
+      "paper": {
+        "section": "5 / 7.9",
+        "figure": "Figure 9 (dynamics)",
+        "claim": "risk-reputation dynamics (simulation only)"
+      }
+    },
+    {
+      "id": "rq4_resilience",
+      "description": "Resilience / fault degradation (crash recovery, network partition, observation degradation)",
+      "type": "simulation",
+      "scripts": [
+        "scripts/rq4/resilience_test.py"
+      ],
+      "raw_output": [
+        "results/rq4_resilience_summary.json",
+        "results/rq4_crash_recovery.json",
+        "results/rq4_network_partition.json",
+        "results/rq4_observation_degradation.json"
+      ],
+      "paper": {
+        "section": "6 / 8",
+        "table": "Table 6 (fault degradation matrix)",
+        "claim": "fault degradation (qualitative; systematic fault-injection is future work)"
+      }
+    },
+    {
+      "id": "cross_node",
+      "description": "Cross-node revocation propagation feasibility: 2 cloud instances, N=30 rounds, controlled 10 ms simulated one-way delay (one-way measurement path); plus single 35.1 ms real cloud-to-cloud feasibility measurement",
+      "type": "real (2 cloud instances) + simulated delay",
+      "scripts": [
+        "scripts/cross_node_agent.py",
+        "scripts/registry_node.py"
+      ],
+      "raw_output": [
+        "results/cross_node_N30.json"
+      ],
+      "seed": "42 + i for i in 0..29",
+      "paper": {
+        "section": "7.10 Cross-Node Governance",
+        "table": "Table 18 (cross-node)",
+        "claim": "P50 = 11.6 ms (simulated delay, one-way path); feasibility only, not a replicated multi-node deployment"
+      }
+    },
+    {
+      "id": "rq2_single_juror",
+      "description": "Per-juror (individual auditor) error rates for the 180 paired jury cases: per-auditor error rate with exact Clopper-Pearson 95% CI, FPR/FNR, error split by case category (DV/DC/MS), McNemar of each auditor vs. the majority verdict, pairwise error correlation, unanimous-error count, and the majority-error anatomy (how often each auditor sits with the wrong majority)",
+      "type": "simulation (post-processing on rq2_jury_cases_raw.json; no API, no GPU)",
+      "scripts": [
+        "scripts/rq2/single_juror_stats.py"
+      ],
+      "raw_output": [
+        "results/rq2_single_juror_stats.json"
+      ],
+      "paper": {
+        "section": "7.3 Ruling Quality (Single-juror error rates)",
+        "table": "Table 13 (single-juror error rates)",
+        "claim": "heterogeneous juries: 0/180 unanimous errors vs 13/180 homogeneous; per-auditor error rates span 0.0000-0.1944; majority verdict statistically indistinguishable from GLM alone (p=0.617) and worse than Rego alone (2/180, p=0.134)"
+      }
+    },
+    {
+      "id": "rq2_dual_obs_common_cause",
+      "description": "Common-cause (correlated) observation-loss extension of the dual-observation experiment: host-level NORMAL/OUTAGE two-state layer silencing BOTH eBPF and LSM inside OUTAGE windows, channels independent inside NORMAL (eBPF 50% / LSM 1%); i.i.d. OUTAGE fractions p_cc in {0.001,0.005,0.01,0.02,0.05,0.10,0.20} and bursty (Markov) OUTAGE with mean run length 5/20/50 at p_cc in {0.01,0.05}; identical 10,000-event baseline sample, detection definition, n=100, fixed seed",
+      "type": "simulation (post-processing on captured baseline; no kernel/cloud)",
+      "scripts": [
+        "scripts/rq2/dual_obs_common_cause.py"
+      ],
+      "raw_output": [
+        "results/rq2_dual_obs_common_cause.json"
+      ],
+      "seed": 20260905,
+      "paper": {
+        "section": "7.3 Dual Observation Redundancy (Common-cause loss)",
+        "table": "Table 11 (common-cause outage layer)",
+        "claim": "rate_dual(p_cc) = (1-p_cc)*U with U = 99.50%; dual falls 99.50 -> 98.44% at p_cc=1%, 94.62% at 5%, 79.64% at 20%; >=99% needs p_cc<=0.50%, >=95% needs p_cc<=4.52%; p_cc_hat = 1 - rate_dual/U recovers the injected outage fraction; eBPF-LSM drop-indicator rho rises 0.001 -> 0.398"
+      }
+    }
+  ],
+  "data_files": {
+    "arbitration_cases.json": "180-case jury dataset (120 unambiguous + 60 ambiguous) with gold_label; 240-case pool",
+    "behavior_events.json": "synthetic behavioral event sequences (data_gen, seed 42)",
+    "collusion_pairs.json": "collusion-detection test pairs (data_gen, seed 42)",
+    "agent_capability_subset.json": "agent capability subset",
+    "entries.jsonl": "raw observation entries",
+    "rq2_real_dual_obs_baseline.json": "27,210-event eBPF baseline capture (60.1 s, ~453 eps) with 10,000-event sample",
+    "ebpf_15s.jsonl / ebpf_600s.jsonl.gz": "raw eBPF probe captures (15 s / 600 s)"
+  },
+  "figure_generation": {
+    "Figure 4": "figure/fig5_jury_tikz_gray.tex (standalone TikZ)",
+    "Figure 6": "figures/regenerate_fig6_dual_obs.py (reads results/rq2_real_dual_obs.json)",
+    "Figure 7": "figures/gen_fig11.py (hardcoded from results/rq2_jury_results.json)",
+    "Figure 8": "figures/gen_fig12.py",
+    "Figure 9": "figures/regenerate_fgcs_figures.py (dynamics section)"
+  },
+  "hardware_requirements": {
+    "llm_experiments": ">= 48 GB GPU memory (A40) for Qwen2.5-3B + GLM-4-9B via vLLM",
+    "ebpf_experiments": "Linux host with root + BCC, Kernel >= 5.15",
+    "cpu_experiments": "any modern x86_64"
+  },
+  "simulation_vs_real": {
+    "simulation_only": [
+      "rq2_dual_obs (loss model)",
+      "rq2_dual_obs_bursty",
+      "rq4_ablation",
+      "rq4_dynamics",
+      "rq4_resilience",
+      "dynamic rho control loop / juror replacement",
+      "rq2_single_juror",
+      "rq2_dual_obs_common_cause"
+    ],
+    "real": [
+      "rq1_forgery",
+      "rq2_jury (LLM inference)",
+      "rq2_e2e",
+      "rq3_*",
+      "cross_node (2 cloud instances + simulated delay)"
+    ]
+  }
+}
