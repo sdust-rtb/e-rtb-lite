@@ -1,0 +1,9 @@
+{
+  "verified_trials": 720,
+  "verified_signed_operations": 42480,
+  "pending_write_attempts": 3191,
+  "pending_write_successes": 0,
+  "source_hashes_match": true,
+  "raw_hash_matches": true,
+  "summary_recomputed_matches": true
+}

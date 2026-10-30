@@ -1,0 +1,16 @@
+{
+  "platform": "Linux-6.6.87.2-microsoft-standard-WSL2-x86_64-with-glibc2.35",
+  "seed": 20261026,
+  "n_per_cell": 20,
+  "source_sha256": {
+    "/mnt/d/data/RTB/experiments/recovery_comparison.py": "31849152cd1ecbd0c587ee52499334fbba199ef0189114c25d99ab52834c1d12",
+    "core/bsigner.py": "f82b01913c830217e48aa4e5b4605df361835f1c8572e4ead80a6f7c62b9d051",
+    "core/data_gen.py": "4a0c7cb3dbcf80fe31560e1f6e15d576cfbccf90faf9e436730f0fec34b7eeeb",
+    "core/experiment.py": "5090aa2cdd1d37a37bf07b262c989c9fbbd933c2d3867a1fcc123123e45f1154",
+    "core/file_worker.py": "1d7e66dca09779f3e0188c8882af2bd2b33e5151f247f20164eeae1d06bcdc98",
+    "core/governance.py": "a6ff158db37ede5ea33f12d86c24fb07ed73c32366a0af73a5e355ec435601ce",
+    "core/linux_dac.py": "24ad0ed2e298b8d37873849a17fa11e712ebee5e6f2d2c8ae213dc86da7fd439",
+    "core/__init__.py": "5b9b9d8f690d7af62265978c02541abf919fb32d3f16f80b332fa11a308d56a2"
+  },
+  "scope": "Linux DAC fresh-open operations; controlled innocent verdict and observation schedule; no eBPF or LLM"
+}

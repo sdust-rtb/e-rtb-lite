@@ -1,0 +1,186 @@
+[
+  {
+    "order": 1,
+    "label": "tbl:related",
+    "status": "定性",
+    "source": "正文引用与本次核对的 Keylime/Tetragon 官方文档",
+    "note": "撤下无充分依据的有/无勾叉矩阵；改成既有功能与本文关系。非性能实验。",
+    "line": 114
+  },
+  {
+    "order": 2,
+    "label": "tbl:adversary",
+    "status": "条件规格",
+    "source": "core/governance.py；前轮 formal-tcb-rules 审计",
+    "note": "威胁边界与依赖表，不是 T1–T4 攻击覆盖实验。",
+    "line": 180
+  },
+  {
+    "order": 3,
+    "label": "tbl:secgoals",
+    "status": "条件规格",
+    "source": "签名/接收端、可信观测、可信环境和执行器假设",
+    "note": "G1/G3 条件成立；G2 未证明完整覆盖；G4 仅数据集经验质量。",
+    "line": 201
+  },
+  {
+    "order": 4,
+    "label": "tbl:params",
+    "status": "模型设置",
+    "source": "rq4/dynamics_sim.py；rq4/state_ablation.py",
+    "note": "范围是示例而非已验证的推荐域；性质依赖条件。",
+    "line": 291
+  },
+  {
+    "order": 5,
+    "label": "tbl:collusion",
+    "status": "逐项重算",
+    "source": "data/collusion_pairs.json；rq2/collusion_detection.py；results/rq2_collusion_20260611_155916.json",
+    "note": "100 合成对；阈值 .50；TP/FP/TN/FN=20/28/12/40 →20/0/40/40；precision .4167→1，recall .3333。旧 .57/.88 撤下。",
+    "line": 337
+  },
+  {
+    "order": 6,
+    "label": "tbl:fault",
+    "status": "设计值",
+    "source": "故障响应设计",
+    "note": "3s/500ms/5s/队列1000是设置，不是实测恢复保证；部署功能未验收。",
+    "line": 408
+  },
+  {
+    "order": 7,
+    "label": "tbl:status",
+    "status": "交叉核对",
+    "source": "本文各实验、代码与本清单",
+    "note": "修正跨节点、双观测、微基准、动态替换的实现状态。",
+    "line": 443
+  },
+  {
+    "order": 8,
+    "label": "tbl:attacks",
+    "status": "历史汇总一致",
+    "source": "rq1/attack_simulator.py；results/rq1_attack_results.json",
+    "note": "3×100000、0成功吻合；无逐次原始包。CI 是给定抽样假设下的描述，不是密码安全证明或新版端到端测试。",
+    "line": 493
+  },
+  {
+    "order": 9,
+    "label": "tbl:stability",
+    "status": "原始采集/终端分层",
+    "source": "results/ebpf_15s.jsonl；results/ebpf_600s.jsonl.gz；audits/2026-10-26-recovered-113559",
+    "note": "3116/88805 为本地采集；1420/113559 为不同历史处理记录。113559 先采集后批签名，完整包仍缺失。",
+    "line": 516
+  },
+  {
+    "order": 10,
+    "label": "tbl:dualobs",
+    "status": "汇总与代码核对",
+    "source": "rq2/ebpf_runner.py；results/rq2_real_dual_obs.json",
+    "note": "两路检测均为独立随机丢失模拟；LSM99%是假设。50%丢失三行均值 .500171/.989953/.994921；CI半宽 .001152/.000173/.000129。修正百分比端点；无每轮数组，无法独立重建CI。删除无对应行的无损99.51%。",
+    "line": 544
+  },
+  {
+    "order": 11,
+    "label": "tbl:jury",
+    "status": "逐例重算",
+    "source": "data/arbitration_cases.json；results/rq2_jury_cases_raw.json；recomputed.json",
+    "note": "240=180有标签+60null；180为60 DV+60 DC+60 MS。多数错误6/27/4；rho1.443849/1.369201/1.448036吻合；FP/N、FN/N不能叫FPR/FNR。",
+    "line": 572
+  },
+  {
+    "order": 12,
+    "label": "tbl:single_juror",
+    "status": "逐例重算",
+    "source": "同上；rq2/single_juror_stats.py",
+    "note": "全部错误数与CP区间吻合；GLM对异构多数b=c=2，修正连续性校正后p=1，不是.617。其余保留；检验双侧、探索性、未多重校正。",
+    "line": 596
+  },
+  {
+    "order": 13,
+    "label": "tbl:agentharm",
+    "status": "逐例重算",
+    "source": "results/agentharm_jury_api.json；rq2/agentharm_jury_api.py",
+    "note": "Qwen129/352、GLM64/351(缺1良性)、DeepSeek73/352、多数92/352；FPR/FNR为类别分母。缺响应时按有效票投票、平票良性，已披露。",
+    "line": 631
+  },
+  {
+    "order": 14,
+    "label": "tbl:ambig",
+    "status": "模型来源核对",
+    "source": "rq2/ambiguous_analysis.py；results/rq2_ambiguous_consensus.json",
+    "note": "29.5%不是60例真实投票，也不是bootstrap；100000×60的参数Monte Carlo，规则是Bernoulli(.2)，同构100%由构造强制。删除经验CI与假共识保护结论。",
+    "line": 653
+  },
+  {
+    "order": 15,
+    "label": "tbl:perf",
+    "status": "历史汇总一致、计时语义修正",
+    "source": "rq3/micro_benchmark.py；results/rq3_benchmark_results.json",
+    "note": "5×3分位数吻合。HMAC仅摘要；Ed25519验证=随机新消息+无效签名异常路径；signer不含前置MAC和后置接收。无逐次计时，不可重建quantile。",
+    "line": 673
+  },
+  {
+    "order": 16,
+    "label": "tbl:concurrent",
+    "status": "历史汇总一致、负载修正",
+    "source": "rq3/stress_test.py；results/rq3_stress_results.json",
+    "note": "1/5/10/20/50线程各500事件，无50eps限速；吞吐/P50/P95吻合。P99最高71386.2us补入正文。单次短跑非稳态容量。",
+    "line": 694
+  },
+  {
+    "order": 17,
+    "label": "tbl:controlled-operations",
+    "status": "签名原始记录复验",
+    "source": "results/revalidated_linux_dac_20261026/{trials.jsonl,summary.json,metadata.json}；scripts/verify_operation_results.py",
+    "note": "720轮42480操作、3191 Pending写0成功；表按0评分/200裁决单元，20轮/策略/场景。真实Linux DAC；非eBPF/liveLLM。",
+    "line": 725
+  },
+  {
+    "order": 18,
+    "label": "tbl:credential",
+    "status": "签名原始记录复验",
+    "source": "results/credential_v2_20261026；rq3/dct_vs_jwt.py；scripts/verify_credential_results.py",
+    "note": "140序列运行760提交；B4独立核验380；合法各320/320；7场景逐项吻合。历史坏hash比较结果不混用。",
+    "line": 755
+  },
+  {
+    "order": 19,
+    "label": "tbl:crossnode",
+    "status": "原终端+历史代码恢复",
+    "source": "cross_node_N30.json；本目录 prt_e4f0afce3001xvOQWRDFmo6jrF.txt；prt_e4f07d32c001PS5anE7ljqzk1Q.txt",
+    "note": "30条延迟逐条与终端一致，JSON后抄录；计时排除前10ms sleep，包含后10ms sleep+HTTP。mean11.610 sampleSD.197；P99线性12.339/原顺序统计12.6。1020是粘性本地状态计数。35.1原终端明确关闭签名并绕过链拒绝。",
+    "line": 784
+  },
+  {
+    "order": 20,
+    "label": "tbl:ablation",
+    "status": "历史汇总一致、已废止语义",
+    "source": "results/rq4_ablation_results.json 中 S1/S2/S3_fluctuating",
+    "note": "切换0/38/19，占比0/.6333/.82吻合；旧模型非当前性质验证。删除无限暴露推断。",
+    "line": 810
+  },
+  {
+    "order": 21,
+    "label": "tbl:summary",
+    "status": "汇总交叉核对",
+    "source": "所有上述来源；results/rq1_invariant_results.json",
+    "note": "同步修正跨节点、共谋、压力语义，补入主贡献720轮与新版B3/B4；15000不变量为历史汇总，不是原始包独立重验。",
+    "line": 838
+  },
+  {
+    "order": 22,
+    "label": "tbl:complementarity",
+    "status": "定性",
+    "source": "架构接口设计",
+    "note": "改成可能集成角色；不宣称现有组合不能实现密码绑定/撤销。",
+    "line": 892
+  },
+  {
+    "order": 23,
+    "label": "tbl:notation",
+    "status": "定义",
+    "source": "正文公式、接收规则与性质",
+    "note": "符号表非实验；最终编译检查交叉引用。",
+    "line": 1000
+  }
+]

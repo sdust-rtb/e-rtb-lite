@@ -1,0 +1,180 @@
+[
+  {
+    "variant": "B3",
+    "scenario": "valid",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 0,
+    "attack_rejected": 0,
+    "rejected_state_unchanged": true,
+    "reasons": {}
+  },
+  {
+    "variant": "B3",
+    "scenario": "replay",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 10,
+    "attack_rejected": 0,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "accepted": 10
+    }
+  },
+  {
+    "variant": "B3",
+    "scenario": "event_tamper",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 10,
+    "attack_rejected": 0,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "accepted": 10
+    }
+  },
+  {
+    "variant": "B3",
+    "scenario": "signature_tamper",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 10,
+    "attack_rejected": 0,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "accepted": 10
+    }
+  },
+  {
+    "variant": "B3",
+    "scenario": "cross_container",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 10,
+    "attack_rejected": 10,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "environment_mismatch": 10
+    }
+  },
+  {
+    "variant": "B3",
+    "scenario": "post_revocation",
+    "sequences": 10,
+    "legitimate_total": 20,
+    "legitimate_accepted": 20,
+    "attack_total": 10,
+    "attack_rejected": 10,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "revoked": 10
+    }
+  },
+  {
+    "variant": "B3",
+    "scenario": "credential_tamper",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 10,
+    "attack_rejected": 10,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "credential_signature": 10
+    }
+  },
+  {
+    "variant": "B4",
+    "scenario": "valid",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 0,
+    "attack_rejected": 0,
+    "rejected_state_unchanged": true,
+    "reasons": {}
+  },
+  {
+    "variant": "B4",
+    "scenario": "replay",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 10,
+    "attack_rejected": 10,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "replay, gap, or out-of-order evidence": 10
+    }
+  },
+  {
+    "variant": "B4",
+    "scenario": "event_tamper",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 10,
+    "attack_rejected": 10,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "event does not match authenticated chain": 10
+    }
+  },
+  {
+    "variant": "B4",
+    "scenario": "signature_tamper",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 10,
+    "attack_rejected": 10,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "invalid signature": 10
+    }
+  },
+  {
+    "variant": "B4",
+    "scenario": "cross_container",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 10,
+    "attack_rejected": 10,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "environment_mismatch": 10
+    }
+  },
+  {
+    "variant": "B4",
+    "scenario": "post_revocation",
+    "sequences": 10,
+    "legitimate_total": 20,
+    "legitimate_accepted": 20,
+    "attack_total": 10,
+    "attack_rejected": 10,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "revoked": 10
+    }
+  },
+  {
+    "variant": "B4",
+    "scenario": "credential_tamper",
+    "sequences": 10,
+    "legitimate_total": 50,
+    "legitimate_accepted": 50,
+    "attack_total": 10,
+    "attack_rejected": 10,
+    "rejected_state_unchanged": true,
+    "reasons": {
+      "credential_signature": 10
+    }
+  }
+]

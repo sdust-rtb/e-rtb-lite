@@ -1,0 +1,12 @@
+{
+  "formal_tables": 23,
+  "cross_node_terminal_matches_all_30": true,
+  "historical_input_hashes_unchanged": true,
+  "corrected_mcnemar_checks": true,
+  "operation_checker": "720 trials / 42480 signed outcomes / 3191 Pending writes / zero successes; passed",
+  "credential_checker": "140 runs / 380 B4 records; passed",
+  "pdf_pages": 17,
+  "undefined_references": false,
+  "undefined_citations": false,
+  "render_review": "All-page contact sheets inspected; revised diagrams and final reference page rendered; template overfull output warnings remain without visible page clipping."
+}

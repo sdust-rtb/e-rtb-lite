@@ -1,0 +1,27 @@
+{
+  "experiment": "credential-ablation-v2",
+  "utc": "2026-10-26T05:03:55.084899+00:00",
+  "python": "3.9.13 (main, Aug 25 2022, 23:51:50) [MSC v.1916 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "cryptography": "46.0.7",
+  "sequences": 10,
+  "packets_per_sequence": 5,
+  "scenarios": [
+    "valid",
+    "replay",
+    "event_tamper",
+    "signature_tamper",
+    "cross_container",
+    "post_revocation",
+    "credential_tamper"
+  ],
+  "scope": "Local functional validation; no eBPF, LLM or enforcement; B1/B2 not rerun",
+  "provisioning": "Trusted issuer key/public key/anchor; B3 static anchor; B4 exact next seq",
+  "randomness": "Fresh OS-generated keys and anchor seed; no performance claim",
+  "source_sha256": {
+    "rq3/dct_vs_jwt.py": "0f760a3ed565aeae691dd5cd403ddad7f17573ab3adef76deffbf260ffc6faf7",
+    "core/bsigner.py": "f82b01913c830217e48aa4e5b4605df361835f1c8572e4ead80a6f7c62b9d051",
+    "core/governance.py": "a6ff158db37ede5ea33f12d86c24fb07ed73c32366a0af73a5e355ec435601ce"
+  },
+  "raw_sha256": "51611eb80896eda3e8a1206954aa0494dc0f0789c2c09d48078bfb41018dcb26"
+}

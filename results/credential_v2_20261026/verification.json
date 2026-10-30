@@ -1,0 +1,9 @@
+{
+  "verified": true,
+  "rows": 140,
+  "b4_records_independently_checked": 380,
+  "raw_sha256": "51611eb80896eda3e8a1206954aa0494dc0f0789c2c09d48078bfb41018dcb26",
+  "source_hashes_match": true,
+  "summary_recount_matches": true,
+  "scope": "Saved B4 signature/chain/state checks; credential HMAC checks rely on tests/rerun"
+}
