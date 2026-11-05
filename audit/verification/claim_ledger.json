@@ -1,0 +1,857 @@
+[
+ {
+  "id": "A1",
+  "paper": "§7.2 attack trials",
+  "declared": 300000,
+  "recomputed": 300000,
+  "source": "e-rtb-lite/results/rq1_attack_results.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "A2",
+  "paper": "§7.2 successful forgeries",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "e-rtb-lite/results/rq1_attack_results.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "A3",
+  "paper": "§7.2 99% CI upper bound",
+  "declared": 1.77e-05,
+  "recomputed": 1.766090193289216e-05,
+  "source": "e-rtb-lite/results/rq1_attack_results.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B1",
+  "paper": "§7.3 trials",
+  "declared": 720,
+  "recomputed": 720,
+  "source": "revalidated_linux_dac/summary.json (sum n)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B2",
+  "paper": "§7.3 signed operation records",
+  "declared": 42480,
+  "recomputed": 42480,
+  "source": "revalidated_linux_dac/verification.json",
+  "status": "PASS",
+  "basis": "raw-verifier"
+ },
+ {
+  "id": "B3",
+  "paper": "§7.3 Pending write attempts",
+  "declared": 3191,
+  "recomputed": 3191,
+  "source": "revalidated_linux_dac/verification.json",
+  "status": "PASS",
+  "basis": "raw-verifier"
+ },
+ {
+  "id": "B4",
+  "paper": "§7.3 Pending write successes",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "revalidated_linux_dac/verification.json",
+  "status": "PASS",
+  "basis": "raw-verifier"
+ },
+ {
+  "id": "B5-immediate",
+  "paper": "§7.3 attack successful writes (immediate)",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "revalidated/summary (immediate, attack, 0/200)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B5-wait",
+  "paper": "§7.3 attack successful writes (wait)",
+  "declared": 418,
+  "recomputed": 418,
+  "source": "revalidated/summary (wait, attack, 0/200)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B5-staged",
+  "paper": "§7.3 attack successful writes (staged)",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "revalidated/summary (staged, attack, 0/200)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B6-immediate",
+  "paper": "§7.3 first denial P50 ms (immediate)",
+  "declared": 0.478,
+  "recomputed": 0.478,
+  "source": "revalidated/summary (immediate)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B6-wait",
+  "paper": "§7.3 first denial P50 ms (wait)",
+  "declared": 210.34,
+  "recomputed": 210.34,
+  "source": "revalidated/summary (wait)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B6-staged",
+  "paper": "§7.3 first denial P50 ms (staged)",
+  "declared": 0.484,
+  "recomputed": 0.484,
+  "source": "revalidated/summary (staged)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B7-immediate",
+  "paper": "§7.3 legit writes completed % (immediate)",
+  "declared": 0,
+  "recomputed": 0.0,
+  "source": "revalidated/summary (immediate)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B8-immediate",
+  "paper": "§7.3 legit reads completed % (immediate)",
+  "declared": 0,
+  "recomputed": 0.0,
+  "source": "revalidated/summary (immediate)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B7-wait",
+  "paper": "§7.3 legit writes completed % (wait)",
+  "declared": 100,
+  "recomputed": 100.0,
+  "source": "revalidated/summary (wait)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B8-wait",
+  "paper": "§7.3 legit reads completed % (wait)",
+  "declared": 100,
+  "recomputed": 100.0,
+  "source": "revalidated/summary (wait)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B7-staged",
+  "paper": "§7.3 legit writes completed % (staged)",
+  "declared": 17.4,
+  "recomputed": 17.4,
+  "source": "revalidated/summary (staged)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B8-staged",
+  "paper": "§7.3 legit reads completed % (staged)",
+  "declared": 100,
+  "recomputed": 100.0,
+  "source": "revalidated/summary (staged)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "B9",
+  "paper": "§7.3 post-verdict write recovery P50 ms (staged)",
+  "declared": 39.72,
+  "recomputed": 39.72,
+  "source": "revalidated/summary (staged, false_positive)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C1",
+  "paper": "§7.4 trials",
+  "declared": 80,
+  "recomputed": 80,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C2",
+  "paper": "§7.4 signed records",
+  "declared": 6640,
+  "recomputed": 6640,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C3",
+  "paper": "§7.4 clean legit writes (reactive)",
+  "declared": 500,
+  "recomputed": 500,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C4",
+  "paper": "§7.4 clean legit writes (consecutive-safe)",
+  "declared": 380,
+  "recomputed": 380,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C5",
+  "paper": "§7.4 clean recovery ms (reactive)",
+  "declared": 1.4,
+  "recomputed": 1.4,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C6",
+  "paper": "§7.4 clean recovery ms (consecutive-safe)",
+  "declared": 31.06,
+  "recomputed": 31.06,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C7",
+  "paper": "§7.4 disturbed unsafe-window writes (reactive)",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C8",
+  "paper": "§7.4 disturbed unsafe-window writes (consecutive-safe)",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C9",
+  "paper": "§7.4 disturbed legit writes (reactive)",
+  "declared": 380,
+  "recomputed": 380,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C10",
+  "paper": "§7.4 disturbed legit writes (consecutive-safe)",
+  "declared": 193,
+  "recomputed": 193,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C11",
+  "paper": "§7.4 disturbed recovery ms (reactive)",
+  "declared": 1.41,
+  "recomputed": 1.41,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "C12",
+  "paper": "§7.4 disturbed recovery ms (consecutive-safe)",
+  "declared": 76.51,
+  "recomputed": 76.51,
+  "source": "recovery_fair/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "D1",
+  "paper": "§7.4 concurrent trials",
+  "declared": 80,
+  "recomputed": 80,
+  "source": "concurrent/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "D2",
+  "paper": "§7.4 stale commands rejected",
+  "declared": 80,
+  "recomputed": 80,
+  "source": "concurrent/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "D3",
+  "paper": "§7.4 forbidden writes under guard",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "concurrent/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "D4",
+  "paper": "§7.4 unguarded forbidden writes (40 trials)",
+  "declared": 40,
+  "recomputed": 40,
+  "source": "concurrent/negative_control.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "D5",
+  "paper": "§7.4 guarded forbidden writes (40 trials)",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "concurrent/negative_control.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "D6",
+  "paper": "§7.4 recovery P50 ms, cooldown 0",
+  "declared": 0.127,
+  "recomputed": 0.127,
+  "source": "concurrent/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "D7",
+  "paper": "§7.4 recovery P50 ms, cooldown 30",
+  "declared": 30.509,
+  "recomputed": 30.509,
+  "source": "concurrent/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "E1",
+  "paper": "§7.5 scoped on-time tasks (late B)",
+  "declared": 20,
+  "recomputed": 20,
+  "source": "scoped_workflow_v2/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "E2",
+  "paper": "§7.5 reference on-time tasks (late B)",
+  "declared": 20,
+  "recomputed": 20,
+  "source": "scoped_workflow_v2/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "E3",
+  "paper": "§7.5 global on-time tasks (late B)",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "scoped_workflow_v2/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "E4",
+  "paper": "§7.5 scoped median first-correct ms",
+  "declared": 75.69,
+  "recomputed": 75.69,
+  "source": "scoped_workflow_v2/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "E5",
+  "paper": "§7.5 global median first-correct ms",
+  "declared": 221.25,
+  "recomputed": 221.25,
+  "source": "scoped_workflow_v2/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "F1",
+  "paper": "§7.7 heterogeneous errors /180",
+  "declared": 6,
+  "recomputed": 6,
+  "source": "rq2_jury_results.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "F2",
+  "paper": "§7.7 homogeneous errors /180",
+  "declared": 27,
+  "recomputed": 27,
+  "source": "rq2_jury_results.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "F3",
+  "paper": "§7.7 without-rule errors /180",
+  "declared": 4,
+  "recomputed": 4,
+  "source": "rq2_jury_results.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "F4",
+  "paper": "§7.7 rho_eff heterogeneous",
+  "declared": 1.4438,
+  "recomputed": 1.4438,
+  "source": "rq2_jury_results.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "F5",
+  "paper": "§7.7 rho_eff homogeneous",
+  "declared": 1.3692,
+  "recomputed": 1.3692,
+  "source": "rq2_jury_results.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "G1",
+  "paper": "§7.8 majority error",
+  "declared": 0.261,
+  "recomputed": 0.2614,
+  "source": "agentharm_cluster_v2.json",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "G2",
+  "paper": "§7.8 GLM error",
+  "declared": 0.182,
+  "recomputed": 0.1823,
+  "source": "agentharm_cluster_v2.json",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "G3",
+  "paper": "§7.8 DeepSeek error",
+  "declared": 0.207,
+  "recomputed": 0.2074,
+  "source": "agentharm_cluster_v2.json",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "G4",
+  "paper": "§7.8 Qwen error",
+  "declared": 0.366,
+  "recomputed": 0.3665,
+  "source": "agentharm_cluster_v2.json",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "G5",
+  "paper": "§7.8 majority FPR",
+  "declared": 0.506,
+  "recomputed": 0.5057,
+  "source": "agentharm_cluster_v2.json",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "G6",
+  "paper": "§7.8 majority FNR",
+  "declared": 0.017,
+  "recomputed": 0.017,
+  "source": "agentharm_cluster_v2.json",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "H1",
+  "paper": "§7.10 sequence runs",
+  "declared": 140,
+  "recomputed": 140,
+  "source": "credential_v2/trials.jsonl (line count)",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "H2",
+  "paper": "§7.10 submissions",
+  "declared": 760,
+  "recomputed": 760,
+  "source": "credential_v2/summary.json (sum of records)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "H3",
+  "paper": "§7.10 valid-scenario accepted (B4 cell)",
+  "declared": 50,
+  "recomputed": 50,
+  "source": "credential_v2/summary.json (B4/valid)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "H4",
+  "paper": "§7.10 B4 legitimate accepted, all scenarios",
+  "declared": 320,
+  "recomputed": 320,
+  "source": "credential_v2/summary.json (B4 sum)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "H5",
+  "paper": "§7.10 B3 event-tamper rejected",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "credential_v2/summary.json (B3/event_tamper)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "H6",
+  "paper": "§7.10 B4 event-tamper rejected",
+  "declared": 10,
+  "recomputed": 10,
+  "source": "credential_v2/summary.json (B4/event_tamper)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "I-fp10-scoped",
+  "paper": "§7.9 on-time tasks, fp10 (E-RTB)",
+  "declared": 33,
+  "recomputed": 33,
+  "source": "matched_final/fp10/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "I-fp10-ref",
+  "paper": "§7.9 on-time tasks, fp10 (OPA ref)",
+  "declared": 33,
+  "recomputed": 33,
+  "source": "matched_final/fp10/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "I-fp10-global-eventual",
+  "paper": "§7.9 global tasks EVENTUALLY correct, fp10",
+  "declared": 29,
+  "recomputed": 29,
+  "source": "matched_final/fp10/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "I-fp10-global-ontime",
+  "paper": "§7.9 global tasks ON TIME, fp10 (must be 0)",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "matched_final/fp10/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "I-fp10-wait",
+  "paper": "§7.9 wait restricted finalizes permitted, fp10",
+  "declared": 36,
+  "recomputed": 36,
+  "source": "matched_final/fp10/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "I-fp25-scoped",
+  "paper": "§7.9 on-time tasks, fp25 (E-RTB)",
+  "declared": 23,
+  "recomputed": 23,
+  "source": "matched_final/fp25/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "I-fp25-ref",
+  "paper": "§7.9 on-time tasks, fp25 (OPA ref)",
+  "declared": 23,
+  "recomputed": 23,
+  "source": "matched_final/fp25/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "I-fp25-global-eventual",
+  "paper": "§7.9 global tasks EVENTUALLY correct, fp25",
+  "declared": 17,
+  "recomputed": 17,
+  "source": "matched_final/fp25/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "I-fp25-global-ontime",
+  "paper": "§7.9 global tasks ON TIME, fp25 (must be 0)",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "matched_final/fp25/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "I-fp25-wait",
+  "paper": "§7.9 wait restricted finalizes permitted, fp25",
+  "declared": 30,
+  "recomputed": 30,
+  "source": "matched_final/fp25/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "J1",
+  "paper": "§7.6 BPF scoped on-time (late B)",
+  "declared": 20,
+  "recomputed": 20,
+  "source": "vm_bpf_scoped/bpf_late-unrelated-case/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "J2",
+  "paper": "§7.6 BPF reference on-time (late B)",
+  "declared": 20,
+  "recomputed": 20,
+  "source": "vm_bpf_scoped/bpf_late-unrelated-case/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "J3",
+  "paper": "§7.6 BPF global on-time (late B)",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "vm_bpf_scoped/bpf_late-unrelated-case/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "J4",
+  "paper": "§7.6 BPF scoped median ms",
+  "declared": 75.73,
+  "recomputed": 75.73,
+  "source": "vm_bpf_scoped/bpf_late-unrelated-case/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "J5",
+  "paper": "§7.6 BPF global median ms",
+  "declared": 221.18,
+  "recomputed": 221.18,
+  "source": "vm_bpf_scoped/bpf_late-unrelated-case/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "J6",
+  "paper": "§7.6 BPF overlap+terminal stale rejected",
+  "declared": 40,
+  "recomputed": 40,
+  "source": "vm_bpf_scoped/bpf_cases_20261028/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "J7",
+  "paper": "§7.6 BPF forbidden operation successes",
+  "declared": 0,
+  "recomputed": 0,
+  "source": "vm_bpf_scoped/bpf_cases_20261028/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "K1",
+  "paper": "§7.5 VMware trials (3 schedules x 3 arms x 20)",
+  "declared": 180,
+  "recomputed": 180,
+  "source": "vm_scoped_workflow_20261028/*/summary.json (sum n)",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "K2",
+  "paper": "§7.5 VMware scoped median ms (late B)",
+  "declared": 75.59,
+  "recomputed": 75.59,
+  "source": "vm_scoped_workflow/vm_late-unrelated-case/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "K3",
+  "paper": "§7.5 VMware global median ms (late B)",
+  "declared": 221.01,
+  "recomputed": 221.01,
+  "source": "vm_scoped_workflow/vm_late-unrelated-case/summary.json",
+  "status": "PASS",
+  "basis": "summary"
+ },
+ {
+  "id": "L1",
+  "paper": "§7.2 batch-signed packages",
+  "declared": 113559,
+  "recomputed": "—",
+  "source": "numbers withdrawn from the paper: only terminal transcripts survive",
+  "status": "RETIRED",
+  "basis": "none"
+ },
+ {
+  "id": "L2",
+  "paper": "§7.2 batch signing seconds",
+  "declared": 7.026,
+  "recomputed": "—",
+  "source": "numbers withdrawn from the paper: only terminal transcripts survive",
+  "status": "RETIRED",
+  "basis": "none"
+ },
+ {
+  "id": "L3",
+  "paper": "§7.2 batch signing events/s",
+  "declared": 16163,
+  "recomputed": "—",
+  "source": "numbers withdrawn from the paper: only terminal transcripts survive",
+  "status": "RETIRED",
+  "basis": "none"
+ },
+ {
+  "id": "LA1",
+  "paper": "§7.11 staged/rule false-alarm completed",
+  "declared": 5,
+  "recomputed": 5,
+  "source": "live_agent_replay.json (run 194346) (recomputed from per-trial step logs)",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "LA2",
+  "paper": "§7.11 staged/rule false-alarm avail.blocked mean",
+  "declared": 3.0,
+  "recomputed": 3.0,
+  "source": "live_agent_replay.json (run 194346) (recomputed from per-trial step logs)",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "LA3",
+  "paper": "§7.11 staged/rule false-alarm recovery mean ms",
+  "declared": 2479.7,
+  "recomputed": 2479.7,
+  "source": "recovery_ms is not recomputable: the step log has no timestamps and the paper no longer reports it",
+  "status": "RETIRED",
+  "basis": "none"
+ },
+ {
+  "id": "LA4",
+  "paper": "§7.11 immediate/rule false-alarm avail.blocked mean",
+  "declared": 8.6,
+  "recomputed": 8.6,
+  "source": "live_agent_replay.json (run 212839) (recomputed from per-trial step logs)",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "LA5",
+  "paper": "§7.11 staged/rule attack sec.blocked mean",
+  "declared": 2.0,
+  "recomputed": 2.0,
+  "source": "live_agent_replay.json (run 174310) (recomputed from per-trial step logs)",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "LA6",
+  "paper": "§7.11 immediate attack sec.blocked mean",
+  "declared": 1.4,
+  "recomputed": 1.4,
+  "source": "live_agent_replay.json (run 212416) (recomputed from per-trial step logs)",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "LA7",
+  "paper": "§7.11 LLM judge fail, attack sec.blocked mean",
+  "declared": 6.0,
+  "recomputed": 6.0,
+  "source": "live_agent_replay.json (run 222217) (recomputed from per-trial step logs)",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "LA8",
+  "paper": "§7.11 LLM judge flip, attack sec.blocked mean",
+  "declared": 1.6,
+  "recomputed": 1.6,
+  "source": "live_agent_replay.json (run 223435) (recomputed from per-trial step logs)",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "LA9",
+  "paper": "§7.11 LLM judge flip, false-alarm avail.blocked mean",
+  "declared": 9.0,
+  "recomputed": 9.0,
+  "source": "live_agent_replay.json (run 223659) (recomputed from per-trial step logs)",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "LA10",
+  "paper": "§7.11 LLM judge fail, false-alarm avail.blocked mean",
+  "declared": 9.2,
+  "recomputed": 9.2,
+  "source": "live_agent_replay.json (run 223915) (recomputed from per-trial step logs)",
+  "status": "PASS",
+  "basis": "raw"
+ },
+ {
+  "id": "LA11",
+  "paper": "§7.11 LLM judge normal, false-alarm avail.blocked mean",
+  "declared": 2.8,
+  "recomputed": 2.8,
+  "source": "live_agent_replay.json (run 220350) (recomputed from per-trial step logs)",
+  "status": "PASS",
+  "basis": "raw"
+ }
+]

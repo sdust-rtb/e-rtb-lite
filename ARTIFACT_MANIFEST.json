@@ -1,8 +1,8 @@
 {
   "artifact_id": "E-RTB-Lite-CCPE",
-  "paper": "A Lightweight Runtime Governance Middleware for Autonomous Agents in Containerized Environments",
-  "version": "revised-v2",
-  "note": "Machine-readable artifact manifest. Paths are relative to this artifact root. 'simulation' experiments are pure post-processing on captured baseline data (no kernel/cloud needed); 'real' experiments require the specified hardware.",
+  "paper": "Runtime Permission Governance for Autonomous Agents under Delayed Adjudication",
+  "version": "revised-v4",
+  "note": "Machine-readable artifact manifest. Paths are relative to this artifact root. 'simulation' experiments are pure post-processing on captured baseline data (no kernel/cloud needed); 'real' experiments require the specified hardware. Section numbers under each experiment's 'paper' key refer to the CURRENT revised manuscript (Section 5 = Experimental Evaluation, subsections 5.1-5.9). Experiments marked 'revised4_status': 'legacy (earlier version; not in the current manuscript)' were retained from an earlier revision and are NOT part of the submitted study set; their legacy section/table strings are preserved verbatim for provenance and are not renumbered.",
   "environment": {
     "local_dev": {
       "cpu": "Intel i7-11800H",
@@ -55,14 +55,16 @@
         "results/rq1_attack_results.json",
         "results/rq1_invariant_results.json"
       ],
+      "revised4_status": "in-revised-paper (legacy signer campaign, reported as historical context only)",
       "paper": {
-        "section": "7.2 Evidence Integrity",
-        "table": "Table 8 (forgery attack results)",
-        "claim": "zero forgery; Clopper-Pearson 99% upper bound 1.77e-5 (aggregate)"
+        "section": "5.1 Evidence Integrity: Legacy Campaign and Current v2 Tests",
+        "table": "none (text only, Section 5.1 prose)",
+        "claim": "zero forgery; Clopper-Pearson 99% upper bound 1.77e-5 (aggregate); not used in abstract or conclusion"
       }
     },
     {
       "id": "rq2_dual_obs",
+      "revised4_status": "legacy (earlier version; not in the current manuscript)",
       "description": "Dual-observation redundancy: eBPF-only / LSM-only / dual under 10/30/50% eBPF loss (uniform i.i.d. loss simulation over 27,210-event baseline, n=100 repeats)",
       "type": "simulation (post-processing on captured baseline)",
       "scripts": [
@@ -82,6 +84,7 @@
     },
     {
       "id": "rq2_dual_obs_bursty",
+      "revised4_status": "legacy (earlier version; not in the current manuscript)",
       "description": "Bursty-loss extension: two-state Markov (KEEP/DROP) eBPF loss calibrated to 50% mean drop, mean drop-run length 5/20/50; identical baseline, detection definition, n=100, fixed seed",
       "type": "simulation (post-processing)",
       "scripts": [
@@ -113,15 +116,17 @@
         "results/rq2_bootstrap_mcnemar.json"
       ],
       "dataset": "data/arbitration_cases.json",
+      "revised4_status": "in-revised-paper",
       "paper": {
-        "section": "7.4 Ruling Quality / 5.3 Spectral Compression",
-        "table": "Table 12 (jury ruling quality), Table 14 (ambiguous consensus)",
-        "figure": "Figure 4, Figure 7",
-        "claim": "error rate 3.33% vs 15.00%; McNemar n=180 b=0 c=21 chi2=19.05 p=1.27e-5 (robust on 120 unambiguous: c=15 p~3.1e-4)"
+        "section": "5.5 Ruling Quality",
+        "table": "Table 4 (jury ruling quality)",
+        "figure": "Figure 4, Figure 7 (legacy numbering)",
+        "claim": "error rate 3.33% vs 15.00%; paired bootstrap; exact two-sided McNemar n=180 b=21 c=0 p=9.54e-7 (heterogeneous correct, homogeneous wrong)"
       }
     },
     {
       "id": "rq2_e2e",
+      "revised4_status": "legacy (earlier version; not in the current manuscript)",
       "description": "End-to-end 23-step attack-chain latency with live LLM inference (A40, vLLM); mock and real signer variants",
       "type": "real (A40 GPU)",
       "scripts": [
@@ -139,6 +144,7 @@
     },
     {
       "id": "rq3_benchmark",
+      "revised4_status": "legacy (earlier version; component micro-benchmark not in the current manuscript)",
       "description": "Component benchmark: bsigner signing/verification latency, eBPF capture, OPA/Rego evaluation, verifier O(1)",
       "type": "real (CPU)",
       "scripts": [
@@ -155,6 +161,7 @@
     },
     {
       "id": "rq3_stress",
+      "revised4_status": "legacy (earlier version; not in the current manuscript)",
       "description": "Concurrent signer stress (1-50 agents, single global mutex)",
       "type": "real (CPU)",
       "scripts": [
@@ -179,14 +186,16 @@
       "raw_output": [
         "results/rq3_dct_vs_jwt.json"
       ],
+      "revised4_status": "in-revised-paper",
       "paper": {
-        "section": "7.8 Credential Ablation",
-        "table": "Table 17",
-        "claim": "DCT+ binding ablation"
+        "section": "5.8 Credential Design Ablation",
+        "table": "Table 6 (revised B3/B4 functional ablation on the version-2 signer build)",
+        "claim": "DCT+ binding ablation (B4 verifier: 320/320 legitimate accepted, 60/60 attacks rejected)"
       }
     },
     {
       "id": "rq4_ablation",
+      "revised4_status": "legacy (earlier version; not in the current manuscript)",
       "description": "Graduated-revocation state-machine ablation (attack modes: burst, sustained, low-freq, fluctuating, slow-arb, erosion)",
       "type": "simulation",
       "scripts": [
@@ -203,6 +212,7 @@
     },
     {
       "id": "rq4_dynamics",
+      "revised4_status": "legacy (earlier version; risk-reputation dynamics not evaluated in the current manuscript)",
       "description": "Risk-reputation dynamics trajectories (burst / sustained / low-freq), 150-step simulation",
       "type": "simulation",
       "scripts": [
@@ -219,6 +229,7 @@
     },
     {
       "id": "rq4_resilience",
+      "revised4_status": "legacy (earlier version; not in the current manuscript)",
       "description": "Resilience / fault degradation (crash recovery, network partition, observation degradation)",
       "type": "simulation",
       "scripts": [
@@ -238,6 +249,7 @@
     },
     {
       "id": "cross_node",
+      "revised4_status": "legacy (earlier version; multi-node federation is future work in the current manuscript)",
       "description": "Cross-node revocation propagation feasibility: 2 cloud instances, N=30 rounds, controlled 10 ms simulated one-way delay (one-way measurement path); plus single 35.1 ms real cloud-to-cloud feasibility measurement",
       "type": "real (2 cloud instances) + simulated delay",
       "scripts": [
@@ -264,14 +276,16 @@
       "raw_output": [
         "results/rq2_single_juror_stats.json"
       ],
+      "revised4_status": "in-revised-paper",
       "paper": {
-        "section": "7.3 Ruling Quality (Single-juror error rates)",
-        "table": "Table 13 (single-juror error rates)",
-        "claim": "heterogeneous juries: 0/180 unanimous errors vs 13/180 homogeneous; per-auditor error rates span 0.0000-0.1944; majority verdict statistically indistinguishable from GLM alone (p=0.617) and worse than Rego alone (2/180, p=0.134)"
+        "section": "5.5 Ruling Quality (individual juror errors)",
+        "table": "none (text only, Section 5.5 prose)",
+        "claim": "heterogeneous juries: 0/180 unanimous errors vs 13/180 homogeneous; per-auditor error rates span 1.1%-19.4% (Qwen 19.4, GLM 3.3, Rego 1.1); majority verdict indistinguishable from GLM alone and no better than Rego alone; pairwise vote correlation 0.62-0.90"
       }
     },
     {
       "id": "rq2_dual_obs_common_cause",
+      "revised4_status": "legacy (earlier version; not in the current manuscript)",
       "description": "Common-cause (correlated) observation-loss extension of the dual-observation experiment: host-level NORMAL/OUTAGE two-state layer silencing BOTH eBPF and LSM inside OUTAGE windows, channels independent inside NORMAL (eBPF 50% / LSM 1%); i.i.d. OUTAGE fractions p_cc in {0.001,0.005,0.01,0.02,0.05,0.10,0.20} and bursty (Markov) OUTAGE with mean run length 5/20/50 at p_cc in {0.01,0.05}; identical 10,000-event baseline sample, detection definition, n=100, fixed seed",
       "type": "simulation (post-processing on captured baseline; no kernel/cloud)",
       "scripts": [

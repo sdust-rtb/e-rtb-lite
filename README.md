@@ -1,8 +1,10 @@
 # E-RTB Lite — Reproducibility Artifact
 
-**Paper:** A Lightweight Runtime Governance Middleware for Autonomous Agents in Containerized Environments (target: CCPE)
+**Paper:** Runtime Permission Governance for Autonomous Agents under Delayed Adjudication (target: CCPE)
 
 This artifact contains the data, scripts, prompts, and configuration needed to reproduce the experiments reported in the paper. A machine-readable experiment index is in [`ARTIFACT_MANIFEST.json`](ARTIFACT_MANIFEST.json).
+
+**Verification entry point:** [`VERIFY.md`](VERIFY.md) lists, per study, which file verifies which number and which command regenerates the check, together with the studies whose artefacts are *not* in this repository and the gaps that remain open. Per-claim status is in [`audit/verification/claim_ledger.json`](audit/verification/claim_ledger.json).
 
 > **Scope reminder.** E-RTB Lite is a **single-node engineering prototype**. Several results are **simulations** (loss-tolerance, dynamics, ablation, resilience, dynamic-ρ loop) that are pure post-processing on captured baseline data and need no kernel/cloud; others are **real** measurements (forgery, LLM jury, e2e, benchmarks, cross-node feasibility). See `simulation_vs_real` in the manifest.
 
