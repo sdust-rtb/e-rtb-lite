@@ -2,7 +2,7 @@
 
 This file states, per study, **which file verifies which number** and **which command regenerates the check**. It also states plainly what this repository does *not* contain, so that a reader does not mistake an absence for a passing check.
 
-> **Section numbering.** All `§x.y` references below are to the current revised manuscript, *Runtime Permission Governance for Autonomous Agents under Delayed Adjudication* (target CCPE), in which Section 5 is the Experimental Evaluation (5.1 Evidence Integrity, 5.2 Controlled Permission Restriction and Recovery, 5.3 Scoped Recovery, 5.4 VM BPF-LSM, 5.5 Ruling Quality, 5.6 AgentHarm, 5.7 Capability-Matched Reference, 5.8 Credential Design Ablation, 5.9 Live-Agent Adjudication).
+> **Section numbering.** All `§x.y` references below are to the current revised manuscript, *Runtime Permission Governance for Autonomous Agents under Delayed Adjudication* (target CCPE), in which Section 6 is the Experimental Evaluation (6.1 Evidence Integrity, 6.2 Controlled Permission Restriction and Recovery, 6.3 Scoped Recovery, 6.4 VM BPF-LSM, 6.5 Ruling Quality, 6.6 AgentHarm, 6.7 Capability-Matched Reference, 6.8 Credential Design Ablation, 6.9 Live-Agent Adjudication).
 
 Paths are relative to the archive root they belong to:
 
@@ -17,11 +17,11 @@ Nothing in this file asserts that every result in the paper has been independent
 
 | Paper result | Data | Verifier | Command |
 |---|---|---|---|
-| §5.1 forgery (legacy signer campaign), 300,000 trials | `results/rq1_attack_results.json` | `audit/recompute.py` | `python audit/recompute.py` |
-| §5.8 credential/evidence acceptance (v2) | `results/credential_v2_20261026/` | `scripts/scripts/verify_credential_results.py` | `python scripts/scripts/verify_credential_results.py` |
-| §5.2 Linux DAC, 720 trials, 42,480 records | `results/revalidated_linux_dac_20261026/` | `scripts/scripts/verify_operation_results.py` | `python scripts/scripts/verify_operation_results.py` |
-| §5.5 ruling quality, 180 cases | `results/rq2_ambiguous_consensus.json`, `data/` | `audit/recompute.py` | `python audit/recompute.py` |
-| §5.6 AgentHarm clustering | `results/agentharm_jury_api.json` | `archive/audits/2026-11-03-verification/verify_agentharm_cluster.py` | `python audits/2026-11-03-verification/verify_agentharm_cluster.py` (from `archive/`) |
+| §6.1 forgery (legacy signer campaign), 300,000 trials | `results/rq1_attack_results.json` | `audit/recompute.py` | `python audit/recompute.py` |
+| §6.8 credential/evidence acceptance (v2) | `results/credential_v2_20261026/` | `scripts/scripts/verify_credential_results.py` | `python scripts/scripts/verify_credential_results.py` |
+| §6.2 Linux DAC, 720 trials, 42,480 records | `results/revalidated_linux_dac_20261026/` | `scripts/scripts/verify_operation_results.py` | `python scripts/scripts/verify_operation_results.py` |
+| §6.5 ruling quality, 180 cases | `results/rq2_ambiguous_consensus.json`, `data/` | `audit/recompute.py` | `python audit/recompute.py` |
+| §6.6 AgentHarm clustering | `results/agentharm_jury_api.json` | `archive/audits/2026-11-03-verification/verify_agentharm_cluster.py` | `python audits/2026-11-03-verification/verify_agentharm_cluster.py` (from `archive/`) |
 
 Both shipped verifiers enforce a **source-hash gate**: they recompute SHA-256 over the recorded input files and abort if a file has drifted. Their pass/fail output therefore covers provenance and data checks separately, and neither is a claim about the whole archive.
 
@@ -33,13 +33,13 @@ Run from `archive/`:
 
 | Paper result | Data | Verifier | Command |
 |---|---|---|---|
-| §5.2 matched recovery cooldown | `experiments/results/recovery_fair_20261026/` | none — see gaps | — |
-| §5.3 scoped workflow (WSL2/VMware) | `experiments/results/scoped_workflow_*` | inside the run's `verify_*.py` | `python experiments/.../verify_scoped_workflow.py` |
-| §5.4 VM BPF-LSM | `experiments/results/vm_bpf_scoped_20261028/` | inside the run's verifier | as recorded in the run's `metadata.json` |
-| §5.2 concurrent cases, 80 trials + 40 negative controls | `experiments/results/concurrent_case_executor_20261028*/` | `audits/2026-11-03-verification/verify_concurrency_logic.py`, `verify_invariant_J.py` | `python audits/2026-11-03-verification/verify_invariant_J.py` |
-| §5.7 capability-matched (outcome parity + cost) | `experiments/results/fair_baseline_vm_20261028/matched_final/` | `experiments/fair_bpf_baseline/verify_fair_workload.py`, driven by `audits/2026-11-03-verification/verify_fair_bpf_nogate.py` | `python audits/2026-11-03-verification/verify_fair_bpf_nogate.py` |
-| §5.7 identity binding, 120 trials | `experiments/results/identity_binding_vm_formal_final2_20261028/` | the run's own `verify_identity_binding.py` (passes 120/120 against `trials_sha256`) | `cd experiments/results/identity_binding_vm_formal_final2_20261028 && python verify_identity_binding.py` |
-| §5.9 live agent | `experiments/results/agent_react_loop_20261029_*/` | `audits/2026-11-03-verification/verify_live_agent_replay.py` (recomputes denials, completion and transition invariants from each trial's step log) | `python audits/2026-11-03-verification/verify_live_agent_replay.py` |
+| §6.2 matched recovery cooldown | `experiments/results/recovery_fair_20261026/` | none — see gaps | — |
+| §6.3 scoped workflow (WSL2/VMware) | `experiments/results/scoped_workflow_*` | inside the run's `verify_*.py` | `python experiments/.../verify_scoped_workflow.py` |
+| §6.4 VM BPF-LSM | `experiments/results/vm_bpf_scoped_20261028/` | inside the run's verifier | as recorded in the run's `metadata.json` |
+| §6.2 concurrent cases, 80 trials + 40 negative controls | `experiments/results/concurrent_case_executor_20261028*/` | `audits/2026-11-03-verification/verify_concurrency_logic.py`, `verify_invariant_J.py` | `python audits/2026-11-03-verification/verify_invariant_J.py` |
+| §6.7 capability-matched (outcome parity + cost) | `experiments/results/fair_baseline_vm_20261028/matched_final/` | `experiments/fair_bpf_baseline/verify_fair_workload.py`, driven by `audits/2026-11-03-verification/verify_fair_bpf_nogate.py` | `python audits/2026-11-03-verification/verify_fair_bpf_nogate.py` |
+| §6.7 identity binding, 120 trials | `experiments/results/identity_binding_vm_formal_final2_20261028/` | the run's own `verify_identity_binding.py` (passes 120/120 against `trials_sha256`) | `cd experiments/results/identity_binding_vm_formal_final2_20261028 && python verify_identity_binding.py` |
+| §6.9 live agent | `experiments/results/agent_react_loop_20261029_*/` | `audits/2026-11-03-verification/verify_live_agent_replay.py` (recomputes denials, completion and transition invariants from each trial's step log) | `python audits/2026-11-03-verification/verify_live_agent_replay.py` |
 
 `verify_fair_bpf_nogate.py` neutralises **only** `verify_source_bundle` and prints the two statuses separately, because four harness files in that experiment cannot be restored to their recorded hashes (see gaps). It is a data check, not a provenance pass.
 
