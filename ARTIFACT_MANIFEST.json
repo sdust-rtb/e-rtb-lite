@@ -58,7 +58,7 @@
       "revised4_status": "in-revised-paper (legacy signer campaign, reported as historical context only)",
       "paper": {
         "section": "6.1 Evidence Integrity: Legacy Campaign and Current v2 Tests",
-        "table": "none (text only, Section 5.1 prose)",
+        "table": "none (text only, Section 6.1 prose)",
         "claim": "zero forgery; Clopper-Pearson 99% upper bound 1.77e-5 (aggregate); not used in abstract or conclusion"
       }
     },
@@ -120,7 +120,7 @@
       "paper": {
         "section": "6.5 Ruling Quality",
         "table": "Table 4 (jury ruling quality)",
-        "figure": "Figure 4, Figure 7 (legacy numbering)",
+        "figure": "none in the current manuscript (legacy figure numbers retired)",
         "claim": "error rate 3.33% vs 15.00%; paired bootstrap; exact two-sided McNemar n=180 b=21 c=0 p=9.54e-7 (heterogeneous correct, homogeneous wrong)"
       }
     },
@@ -279,7 +279,7 @@
       "revised4_status": "in-revised-paper",
       "paper": {
         "section": "6.5 Ruling Quality (individual juror errors)",
-        "table": "none (text only, Section 5.5 prose)",
+        "table": "none (text only, Section 6.5 prose)",
         "claim": "heterogeneous juries: 0/180 unanimous errors vs 13/180 homogeneous; per-auditor error rates span 1.1%-19.4% (Qwen 19.4, GLM 3.3, Rego 1.1); majority verdict indistinguishable from GLM alone and no better than Rego alone; pairwise vote correlation 0.62-0.90"
       }
     },
