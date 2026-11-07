@@ -1,6 +1,7 @@
 # E-RTB Lite — Reproducibility Artifact
 
 **Paper:** Runtime Permission Governance for Autonomous Agents under Delayed Adjudication (target: CCPE)
+Per-trial records for §6.3–6.9 are shipped as Supporting Information S1 (archive/); this repository holds the verifiers, manifest and claim ledger. See VERIFY.md for the repo/archive split.
 
 This artifact contains the data, scripts, prompts, and configuration needed to reproduce the experiments reported in the paper. A machine-readable experiment index is in [`ARTIFACT_MANIFEST.json`](ARTIFACT_MANIFEST.json).
 
